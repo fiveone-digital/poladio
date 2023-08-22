@@ -41,11 +41,7 @@ class _BookingNameComponentWidgetState
     _model = createModel(context, () => BookingNameComponentModel());
 
     _model.bookingNameController ??= TextEditingController(
-        text: getJsonField(
-                  widget.ownerList?[widget.index!],
-                  r'''$.name''',
-                ) !=
-                null
+        text: (widget.ownerList?[widget.index!]) != null
             ? getJsonField(
                 widget.ownerList?[widget.index!],
                 r'''$.name''',
@@ -72,7 +68,7 @@ class _BookingNameComponentWidgetState
         () async {
           await actions.updateOwnerItemData(
             widget.index!,
-            widget.bookingName,
+            _model.bookingNameController.text,
             null,
             null,
           );

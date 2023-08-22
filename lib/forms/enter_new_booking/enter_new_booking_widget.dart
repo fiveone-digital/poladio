@@ -313,7 +313,10 @@ class _EnterNewBookingWidgetState extends State<EnterNewBookingWidget>
                               ),
                               Builder(
                                 builder: (context) {
-                                  final owner = FFAppState().ownerList.toList();
+                                  final owner = FFAppState()
+                                      .ownerList
+                                      .map((e) => e)
+                                      .toList();
                                   return ListView.builder(
                                     padding: EdgeInsets.zero,
                                     shrinkWrap: true,
@@ -540,8 +543,6 @@ class _EnterNewBookingWidgetState extends State<EnterNewBookingWidget>
                                                             updateCallback:
                                                                 () => setState(
                                                                     () {}),
-                                                            updateOnChange:
-                                                                true,
                                                             child:
                                                                 BookingNameComponentWidget(
                                                               key: Key(
@@ -588,8 +589,6 @@ class _EnterNewBookingWidgetState extends State<EnterNewBookingWidget>
                                                             updateCallback:
                                                                 () => setState(
                                                                     () {}),
-                                                            updateOnChange:
-                                                                true,
                                                             child:
                                                                 BookingEmailComponentWidget(
                                                               key: Key(

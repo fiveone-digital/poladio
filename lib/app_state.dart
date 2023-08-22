@@ -34,17 +34,6 @@ class FFAppState extends ChangeNotifier {
         }
       }
     });
-    _safeInit(() {
-      _ownerList = prefs.getStringList('ff_ownerList')?.map((x) {
-            try {
-              return jsonDecode(x);
-            } catch (e) {
-              print("Can't decode persisted json. Error: $e.");
-              return {};
-            }
-          }).toList() ??
-          _ownerList;
-    });
   }
 
   void update(VoidCallback callback) {
@@ -87,26 +76,18 @@ class FFAppState extends ChangeNotifier {
   List<dynamic> get ownerList => _ownerList;
   set ownerList(List<dynamic> _value) {
     _ownerList = _value;
-    prefs.setStringList(
-        'ff_ownerList', _value.map((x) => jsonEncode(x)).toList());
   }
 
   void addToOwnerList(dynamic _value) {
     _ownerList.add(_value);
-    prefs.setStringList(
-        'ff_ownerList', _ownerList.map((x) => jsonEncode(x)).toList());
   }
 
   void removeFromOwnerList(dynamic _value) {
     _ownerList.remove(_value);
-    prefs.setStringList(
-        'ff_ownerList', _ownerList.map((x) => jsonEncode(x)).toList());
   }
 
   void removeAtIndexFromOwnerList(int _index) {
     _ownerList.removeAt(_index);
-    prefs.setStringList(
-        'ff_ownerList', _ownerList.map((x) => jsonEncode(x)).toList());
   }
 
   void updateOwnerListAtIndex(
@@ -114,8 +95,6 @@ class FFAppState extends ChangeNotifier {
     dynamic Function(dynamic) updateFn,
   ) {
     _ownerList[_index] = updateFn(_ownerList[_index]);
-    prefs.setStringList(
-        'ff_ownerList', _ownerList.map((x) => jsonEncode(x)).toList());
   }
 }
 
