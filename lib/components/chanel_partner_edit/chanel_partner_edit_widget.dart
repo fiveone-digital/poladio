@@ -572,14 +572,20 @@ class _ChanelPartnerEditWidgetState extends State<ChanelPartnerEditWidget>
                             onPressed: () async {
                               Navigator.pop(context);
                             },
-                            text: 'Back',
+                            text: '',
+                            icon: Icon(
+                              Icons.chevron_left,
+                              size: 28.0,
+                            ),
                             options: FFButtonOptions(
-                              height: 44.0,
+                              width: 60.0,
+                              height: 60.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
+                                  8.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).secondary,
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -593,7 +599,7 @@ class _ChanelPartnerEditWidgetState extends State<ChanelPartnerEditWidget>
                                 color: Colors.black,
                                 width: 2.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(30.0),
                               hoverColor: Color(0xFFE5E7EB),
                               hoverBorderSide: BorderSide(
                                 color: Color(0xFFE5E7EB),
@@ -618,7 +624,7 @@ class _ChanelPartnerEditWidgetState extends State<ChanelPartnerEditWidget>
                                   24.0, 0.0, 24.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: Color(0xFF6F61EF),
+                              color: FlutterFlowTheme.of(context).primaryText,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(

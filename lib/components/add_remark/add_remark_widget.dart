@@ -392,14 +392,20 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
                               onPressed: () async {
                                 Navigator.pop(context);
                               },
-                              text: 'Close',
+                              text: '',
+                              icon: Icon(
+                                Icons.chevron_left,
+                                size: 28.0,
+                              ),
                               options: FFButtonOptions(
-                                height: 40.0,
+                                width: 60.0,
+                                height: 60.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
+                                    8.0, 0.0, 0.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).secondary,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -411,7 +417,7 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
                                   color: Colors.black,
                                   width: 2.0,
                                 ),
-                                borderRadius: BorderRadius.circular(12.0),
+                                borderRadius: BorderRadius.circular(30.0),
                               ),
                             ),
                             FFButtonWidget(
@@ -420,12 +426,13 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
                               },
                               text: 'Submit',
                               options: FFButtonOptions(
+                                width: 150.0,
                                 height: 40.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: Color(0xFF6F61EF),
+                                color: FlutterFlowTheme.of(context).primaryText,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(

@@ -33,6 +33,56 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
           token: FFAppState().token,
         );
         if ((_model.dashboardResp?.succeeded ?? true)) {
+          if (!(FFAppState().currentProject != null)) {
+            _model.projectListResp = await PoladioAPIsGroup.projectsCall.call(
+              token: FFAppState().token,
+            );
+            if ((_model.projectListResp?.succeeded ?? true)) {
+              setState(() {
+                FFAppState().projectList = getJsonField(
+                  (_model.projectListResp?.jsonBody ?? ''),
+                  r'''$.data''',
+                )!
+                    .toList()
+                    .cast<dynamic>();
+                FFAppState().currentProject = PoladioAPIsGroup.projectsCall
+                    .data(
+                      (_model.projectListResp?.jsonBody ?? ''),
+                    )
+                    .first;
+              });
+            }
+            _model.schemeMaster =
+                await PoladioAPIsGroup.schemesByProjectsCall.call(
+              projectId: getJsonField(
+                FFAppState().currentProject,
+                r'''$.id''',
+              ),
+              token: FFAppState().token,
+            );
+            _model.unitMaster = await PoladioAPIsGroup.unitsByProjectsCall.call(
+              projectId: getJsonField(
+                FFAppState().currentProject,
+                r'''$.id''',
+              ),
+              token: FFAppState().token,
+            );
+            setState(() {
+              FFAppState().SchemeMasterList = getJsonField(
+                (_model.schemeMaster?.jsonBody ?? ''),
+                r'''$.data''',
+              )!
+                  .toList()
+                  .cast<dynamic>();
+              FFAppState().UnitMasterList = getJsonField(
+                (_model.unitMaster?.jsonBody ?? ''),
+                r'''$.data''',
+              )!
+                  .toList()
+                  .cast<dynamic>();
+            });
+          }
+
           context.goNamed('Dashboard');
         } else {
           context.goNamed('Loginpage');

@@ -85,11 +85,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'EnterNewWalkIn',
-          path: '/enterNewWalkIn',
-          builder: (context, params) => EnterNewWalkInWidget(),
-        ),
-        FFRoute(
           name: 'SplashScreen',
           path: '/splashScreen',
           builder: (context, params) => SplashScreenWidget(),
@@ -119,6 +114,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'EnterNewBooking',
           path: '/enterNewBooking',
           builder: (context, params) => EnterNewBookingWidget(),
+        ),
+        FFRoute(
+          name: 'Projects',
+          path: '/projects',
+          builder: (context, params) => ProjectsWidget(),
+        ),
+        FFRoute(
+          name: 'EnterWalkin',
+          path: '/enterWalkin',
+          builder: (context, params) => EnterWalkinWidget(),
+        ),
+        FFRoute(
+          name: 'EnterPersonalWalkin',
+          path: '/enterPersonalWalkin',
+          builder: (context, params) => EnterPersonalWalkinWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

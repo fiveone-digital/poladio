@@ -170,7 +170,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
                 width: 50.0,
@@ -189,7 +189,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
           onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             drawer: Drawer(
               elevation: 16.0,
               child: wrapWithModel(
@@ -198,35 +198,35 @@ class _DashboardWidgetState extends State<DashboardWidget>
                 child: SideMenuWidget(),
               ),
             ),
-            appBar: AppBar(
-              backgroundColor: FlutterFlowTheme.of(context).primary,
-              automaticallyImplyLeading: false,
-              leading: FlutterFlowIconButton(
-                borderColor: Colors.transparent,
-                borderRadius: 30.0,
-                borderWidth: 1.0,
-                buttonSize: 60.0,
-                icon: Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                  size: 30.0,
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(80.0),
+              child: AppBar(
+                backgroundColor:
+                    FlutterFlowTheme.of(context).secondaryBackground,
+                automaticallyImplyLeading: false,
+                leading: FlutterFlowIconButton(
+                  borderColor: Colors.transparent,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 60.0,
+                  icon: Icon(
+                    Icons.menu,
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    size: 30.0,
+                  ),
+                  onPressed: () async {
+                    scaffoldKey.currentState!.openDrawer();
+                  },
                 ),
-                onPressed: () async {
-                  scaffoldKey.currentState!.openDrawer();
-                },
+                title: Text(
+                  'DASHBOARD',
+                  style: FlutterFlowTheme.of(context).titleMedium,
+                ),
+                actions: [],
+                centerTitle: true,
+                toolbarHeight: 80.0,
+                elevation: 2.0,
               ),
-              title: Text(
-                'Dashboard',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Poppins',
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w600,
-                    ),
-              ),
-              actions: [],
-              centerTitle: true,
-              elevation: 2.0,
             ),
             body: SafeArea(
               top: true,
@@ -254,8 +254,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                             width: MediaQuery.sizeOf(context).width * 0.4,
                             height: 160.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
+                              color: Color(0xFFF9FD05),
                               borderRadius: BorderRadius.circular(24.0),
                             ),
                             child: Padding(
@@ -267,8 +266,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                 children: [
                                   FaIcon(
                                     FontAwesomeIcons.dollarSign,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     size: 32.0,
                                   ),
                                   Padding(
@@ -285,6 +283,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           .displaySmall
                                           .override(
                                             fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
                                             fontSize: 22.0,
                                           ),
                                     ),
@@ -296,6 +296,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
                                           fontSize: 14.0,
                                         ),
                                   ),
@@ -308,7 +310,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                             width: MediaQuery.sizeOf(context).width * 0.4,
                             height: 160.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).secondary,
+                              color: Color(0xFF48FF09),
                               borderRadius: BorderRadius.circular(24.0),
                             ),
                             child: Padding(
@@ -320,7 +322,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                 children: [
                                   Icon(
                                     Icons.trending_up,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     size: 44.0,
                                   ),
                                   Padding(
@@ -338,7 +340,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
-                                                .info,
+                                                .primary,
                                             fontSize: 22.0,
                                           ),
                                     ),
@@ -358,8 +360,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                             width: MediaQuery.sizeOf(context).width * 0.4,
                             height: 160.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
+                              color: Color(0xFF2751CD),
                               borderRadius: BorderRadius.circular(24.0),
                             ),
                             child: Padding(
@@ -389,6 +390,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           .displaySmall
                                           .override(
                                             fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
                                             fontSize: 22.0,
                                           ),
                                     ),
@@ -397,7 +400,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     'This Month',
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
                                   ),
                                 ],
                               ),
@@ -408,8 +416,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                             width: MediaQuery.sizeOf(context).width * 0.4,
                             height: 160.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
+                              color: Color(0xFF00E8FF),
                               borderRadius: BorderRadius.circular(24.0),
                             ),
                             child: Padding(
@@ -447,7 +454,12 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     'This Week',
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
                                   ),
                                 ],
                               ),

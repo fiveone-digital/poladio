@@ -13,6 +13,12 @@ class SplashScreenModel extends FlutterFlowModel {
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Dashboard)] action in SplashScreen widget.
   ApiCallResponse? dashboardResp;
+  // Stores action output result for [Backend Call - API (Projects)] action in SplashScreen widget.
+  ApiCallResponse? projectListResp;
+  // Stores action output result for [Backend Call - API (Schemes By Projects)] action in SplashScreen widget.
+  ApiCallResponse? schemeMaster;
+  // Stores action output result for [Backend Call - API (Units By Projects)] action in SplashScreen widget.
+  ApiCallResponse? unitMaster;
 
   /// Initialization and disposal methods.
 

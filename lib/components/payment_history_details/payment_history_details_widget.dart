@@ -86,7 +86,12 @@ class _PaymentHistoryDetailsWidgetState
       widget.payments,
       r'''$.payment_date''',
     ).toString().toString());
-    _model.bankBranchController ??= TextEditingController(
+    _model.bankBranchController1 ??= TextEditingController(
+        text: getJsonField(
+      widget.payments,
+      r'''$.bank_name''',
+    ).toString().toString());
+    _model.bankBranchController2 ??= TextEditingController(
         text: getJsonField(
       widget.payments,
       r'''$.bank_branch''',
@@ -169,7 +174,7 @@ class _PaymentHistoryDetailsWidgetState
                           style: FlutterFlowTheme.of(context)
                               .headlineMedium
                               .override(
-                                fontFamily: 'Outfit',
+                                fontFamily: 'Poppins',
                                 color: Color(0xFF15161E),
                                 fontSize: 24.0,
                                 fontWeight: FontWeight.w500,
@@ -202,8 +207,8 @@ class _PaymentHistoryDetailsWidgetState
                       'Below are your payment details',
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: 'Plus Jakarta Sans',
-                            color: Color(0xFF606A85),
-                            fontSize: 14.0,
+                            color: FlutterFlowTheme.of(context).labelColor,
+                            fontSize: 12.0,
                             fontWeight: FontWeight.w500,
                           ),
                     ),
@@ -234,6 +239,7 @@ class _PaymentHistoryDetailsWidgetState
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Booking Name',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -253,7 +259,8 @@ class _PaymentHistoryDetailsWidgetState
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -283,7 +290,7 @@ class _PaymentHistoryDetailsWidgetState
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 10.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -319,6 +326,7 @@ class _PaymentHistoryDetailsWidgetState
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Amount',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -338,7 +346,8 @@ class _PaymentHistoryDetailsWidgetState
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -368,7 +377,7 @@ class _PaymentHistoryDetailsWidgetState
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 10.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -398,6 +407,7 @@ class _PaymentHistoryDetailsWidgetState
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Rec No',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -417,7 +427,8 @@ class _PaymentHistoryDetailsWidgetState
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -447,7 +458,7 @@ class _PaymentHistoryDetailsWidgetState
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 10.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -483,6 +494,7 @@ class _PaymentHistoryDetailsWidgetState
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Receipt Date',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -502,7 +514,8 @@ class _PaymentHistoryDetailsWidgetState
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -532,7 +545,7 @@ class _PaymentHistoryDetailsWidgetState
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 10.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -563,6 +576,7 @@ class _PaymentHistoryDetailsWidgetState
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Payment Date',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -582,7 +596,8 @@ class _PaymentHistoryDetailsWidgetState
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -612,7 +627,7 @@ class _PaymentHistoryDetailsWidgetState
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 10.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -647,12 +662,13 @@ class _PaymentHistoryDetailsWidgetState
                                 child: Container(
                                   width: 200.0,
                                   child: TextFormField(
-                                    controller: _model.bankBranchController,
+                                    controller: _model.bankBranchController1,
                                     autofocus: true,
                                     readOnly: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      labelText: 'Bank, Branch',
+                                      isDense: true,
+                                      labelText: 'Bank',
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -671,7 +687,8 @@ class _PaymentHistoryDetailsWidgetState
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: Color(0xFFE5E7EB),
+                                          color: FlutterFlowTheme.of(context)
+                                              .textFieldBorder,
                                           width: 2.0,
                                         ),
                                         borderRadius:
@@ -705,7 +722,7 @@ class _PaymentHistoryDetailsWidgetState
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 24.0, 20.0, 24.0),
+                                              20.0, 10.0, 20.0, 24.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -718,7 +735,104 @@ class _PaymentHistoryDetailsWidgetState
                                     maxLines: null,
                                     cursorColor: Color(0xFF6F61EF),
                                     validator: _model
-                                        .bankBranchControllerValidator
+                                        .bankBranchController1Validator
+                                        .asValidator(context),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 16.0, 0.0, 0.0),
+                                child: Container(
+                                  width: 200.0,
+                                  child: TextFormField(
+                                    controller: _model.bankBranchController2,
+                                    autofocus: true,
+                                    readOnly: true,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      isDense: true,
+                                      labelText: 'Branch',
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0xFF606A85),
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0xFF606A85),
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .textFieldBorder,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFF6F61EF),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFFF5963),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFFF5963),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      contentPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              20.0, 10.0, 20.0, 24.0),
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          color: Color(0xFF15161E),
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                    maxLines: null,
+                                    cursorColor: Color(0xFF6F61EF),
+                                    validator: _model
+                                        .bankBranchController2Validator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -744,6 +858,7 @@ class _PaymentHistoryDetailsWidgetState
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Mode',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -763,7 +878,8 @@ class _PaymentHistoryDetailsWidgetState
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -793,7 +909,7 @@ class _PaymentHistoryDetailsWidgetState
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 10.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -823,6 +939,7 @@ class _PaymentHistoryDetailsWidgetState
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Ref',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -842,7 +959,8 @@ class _PaymentHistoryDetailsWidgetState
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -872,7 +990,7 @@ class _PaymentHistoryDetailsWidgetState
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 10.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -906,6 +1024,7 @@ class _PaymentHistoryDetailsWidgetState
                                 readOnly: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
+                                  isDense: true,
                                   labelText: 'GST',
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
@@ -918,7 +1037,8 @@ class _PaymentHistoryDetailsWidgetState
                                       FlutterFlowTheme.of(context).labelMedium,
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0xFFE5E7EB),
+                                      color: FlutterFlowTheme.of(context)
+                                          .textFieldBorder,
                                       width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(12.0),
@@ -946,6 +1066,9 @@ class _PaymentHistoryDetailsWidgetState
                                   ),
                                   filled: true,
                                   fillColor: Colors.white,
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 10.0, 20.0, 24.0),
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                                 textAlign: TextAlign.start,

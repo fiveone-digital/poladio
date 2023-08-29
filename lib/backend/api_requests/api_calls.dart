@@ -22,6 +22,9 @@ class PoladioAPIsGroup {
   static DashboardCall dashboardCall = DashboardCall();
   static ProspectCall prospectCall = ProspectCall();
   static BookingCreateCall bookingCreateCall = BookingCreateCall();
+  static UnitsByProjectsCall unitsByProjectsCall = UnitsByProjectsCall();
+  static SchemesByProjectsCall schemesByProjectsCall = SchemesByProjectsCall();
+  static ProjectsCall projectsCall = ProjectsCall();
 }
 
 class LoginCall {
@@ -326,7 +329,7 @@ class ProspectCall {
 
 class BookingCreateCall {
   Future<ApiCallResponse> call({
-    int? id,
+    int? projectId,
     String? token = '',
     dynamic? ownersJson,
     int? unitId,
@@ -340,28 +343,135 @@ class BookingCreateCall {
     String? paymentTerms = '',
   }) {
     final owners = _serializeJson(ownersJson, true);
-    final body = '''
-{
-  "id": "${id}",
-  "token": "${token}"
-}''';
+
     return ApiManager.instance.makeApiCall(
       callName: 'Booking Create',
-      apiUrl: '${PoladioAPIsGroup.baseUrl}/projects/${id}/booking',
+      apiUrl: '${PoladioAPIsGroup.baseUrl}/projects/${projectId}/booking',
       callType: ApiCallType.POST,
       headers: {
         ...PoladioAPIsGroup.headers,
         'Authorization': 'Bearer ${token}',
       },
-      params: {},
-      body: body,
-      bodyType: BodyType.JSON,
+      params: {
+        'id': projectId,
+        'token': token,
+        'owners': owners,
+        'unit_id': unitId,
+        'payment_scheme_id': paymentSchemeId,
+        'mobile': mobile,
+        'booking_amount': bookingAmount,
+        'booking_date': bookingDate,
+        'agreement_value': agreementValue,
+        'mode': mode,
+        'address': address,
+        'payment_terms': paymentTerms,
+      },
+      bodyType: BodyType.MULTIPART,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
     );
   }
+}
+
+class UnitsByProjectsCall {
+  Future<ApiCallResponse> call({
+    int? projectId,
+    String? token = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Units By Projects',
+      apiUrl: '${PoladioAPIsGroup.baseUrl}/projects/${projectId}/units',
+      callType: ApiCallType.GET,
+      headers: {
+        ...PoladioAPIsGroup.headers,
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {
+        'project_id': projectId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      );
+}
+
+class SchemesByProjectsCall {
+  Future<ApiCallResponse> call({
+    int? projectId,
+    String? token = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Schemes By Projects',
+      apiUrl: '${PoladioAPIsGroup.baseUrl}/projects/${projectId}/schemes',
+      callType: ApiCallType.GET,
+      headers: {
+        ...PoladioAPIsGroup.headers,
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {
+        'project_id': projectId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      );
+}
+
+class ProjectsCall {
+  Future<ApiCallResponse> call({
+    String? token = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Projects',
+      apiUrl: '${PoladioAPIsGroup.baseUrl}/projects',
+      callType: ApiCallType.GET,
+      headers: {
+        ...PoladioAPIsGroup.headers,
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      );
+  dynamic projectId(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].id''',
+      );
+  dynamic companyId(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].company_id''',
+      );
+  dynamic projectName(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].name''',
+      );
 }
 
 /// End Poladio APIs Group Code

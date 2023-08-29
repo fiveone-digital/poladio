@@ -20,7 +20,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class EnterNewBookingModel extends FlutterFlowModel {
+class EnterPersonalWalkinModel extends FlutterFlowModel {
   ///  Local state fields for this page.
 
   int currentTab = 0;
@@ -37,9 +37,9 @@ class EnterNewBookingModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Backend Call - API (Units By Projects)] action in EnterNewBooking widget.
+  // Stores action output result for [Backend Call - API (Units By Projects)] action in EnterPersonalWalkin widget.
   ApiCallResponse? apiResultsxm;
-  // Stores action output result for [Backend Call - API (Schemes By Projects)] action in EnterNewBooking widget.
+  // Stores action output result for [Backend Call - API (Schemes By Projects)] action in EnterPersonalWalkin widget.
   ApiCallResponse? apiResult3nf;
   // Models for bookingNameComponent dynamic component.
   late FlutterFlowDynamicModels<BookingNameComponentModel>
@@ -119,8 +119,6 @@ class EnterNewBookingModel extends FlutterFlowModel {
   // State field(s) for ChannelAddress widget.
   TextEditingController? channelAddressController;
   String? Function(BuildContext, String?)? channelAddressControllerValidator;
-  // Stores action output result for [Backend Call - API (Booking Create)] action in Button widget.
-  ApiCallResponse? bookingCreate;
 
   /// Initialization and disposal methods.
 

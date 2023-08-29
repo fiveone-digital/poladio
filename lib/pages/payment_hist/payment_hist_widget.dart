@@ -49,7 +49,7 @@ class _PaymentHistWidgetState extends State<PaymentHistWidget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
                 width: 50.0,
@@ -68,7 +68,7 @@ class _PaymentHistWidgetState extends State<PaymentHistWidget> {
           onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             drawer: Drawer(
               elevation: 16.0,
               child: wrapWithModel(
@@ -77,51 +77,53 @@ class _PaymentHistWidgetState extends State<PaymentHistWidget> {
                 child: SideMenuWidget(),
               ),
             ),
-            appBar: AppBar(
-              backgroundColor: FlutterFlowTheme.of(context).primary,
-              automaticallyImplyLeading: false,
-              leading: FlutterFlowIconButton(
-                borderColor: Colors.transparent,
-                borderRadius: 30.0,
-                borderWidth: 1.0,
-                buttonSize: 60.0,
-                icon: Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                  size: 30.0,
-                ),
-                onPressed: () async {
-                  scaffoldKey.currentState!.openDrawer();
-                },
-              ),
-              title: Text(
-                'Payments History',
-                style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Poppins',
-                      color: Colors.white,
-                      fontSize: 22.0,
-                    ),
-              ),
-              actions: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 7.0),
-                  child: FlutterFlowIconButton(
-                    borderRadius: 20.0,
-                    borderWidth: 1.0,
-                    buttonSize: 40.0,
-                    icon: Icon(
-                      Icons.search,
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                      size: 24.0,
-                    ),
-                    onPressed: () {
-                      print('Search pressed ...');
-                    },
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(80.0),
+              child: AppBar(
+                backgroundColor:
+                    FlutterFlowTheme.of(context).secondaryBackground,
+                automaticallyImplyLeading: false,
+                leading: FlutterFlowIconButton(
+                  borderColor: Colors.transparent,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 60.0,
+                  icon: Icon(
+                    Icons.menu,
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    size: 30.0,
                   ),
+                  onPressed: () async {
+                    scaffoldKey.currentState!.openDrawer();
+                  },
                 ),
-              ],
-              centerTitle: true,
-              elevation: 2.0,
+                title: Text(
+                  'Payments History',
+                  style: FlutterFlowTheme.of(context).titleMedium,
+                ),
+                actions: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 7.0),
+                    child: FlutterFlowIconButton(
+                      borderRadius: 20.0,
+                      borderWidth: 1.0,
+                      buttonSize: 40.0,
+                      icon: Icon(
+                        Icons.search,
+                        color: FlutterFlowTheme.of(context).primary,
+                        size: 24.0,
+                      ),
+                      onPressed: () {
+                        print('Search pressed ...');
+                      },
+                    ),
+                  ),
+                ],
+                centerTitle: true,
+                toolbarHeight: 80.0,
+                elevation: 2.0,
+              ),
             ),
             body: SafeArea(
               top: true,
@@ -190,7 +192,8 @@ class _PaymentHistWidgetState extends State<PaymentHistWidget> {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         border: Border.all(
-                                          color: Color(0xFFA3AEBB),
+                                          color: FlutterFlowTheme.of(context)
+                                              .textFieldBorder,
                                           width: 2.0,
                                         ),
                                       ),

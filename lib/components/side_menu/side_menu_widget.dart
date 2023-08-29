@@ -256,6 +256,35 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
             dense: false,
           ),
         ),
+        InkWell(
+          splashColor: Colors.transparent,
+          focusColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          onTap: () async {
+            context.pushNamed('Projects');
+          },
+          child: ListTile(
+            leading: Icon(
+              Icons.receipt_sharp,
+              size: 18.0,
+            ),
+            title: Text(
+              'Projects',
+              style: FlutterFlowTheme.of(context).titleLarge.override(
+                    fontFamily: 'Poppins',
+                    fontSize: 16.0,
+                  ),
+            ),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: FlutterFlowTheme.of(context).secondaryText,
+              size: 20.0,
+            ),
+            tileColor: FlutterFlowTheme.of(context).secondaryBackground,
+            dense: false,
+          ),
+        ),
         Align(
           alignment: AlignmentDirectional(-1.0, 1.0),
           child: Padding(

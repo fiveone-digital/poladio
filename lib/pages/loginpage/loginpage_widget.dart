@@ -358,6 +358,72 @@ class _LoginpageWidgetState extends State<LoginpageWidget>
                                             )
                                             .toString();
                                       });
+                                      _model.projectListResp =
+                                          await PoladioAPIsGroup.projectsCall
+                                              .call(
+                                        token: FFAppState().token,
+                                      );
+                                      if ((_model.projectListResp?.succeeded ??
+                                          true)) {
+                                        FFAppState().update(() {
+                                          FFAppState().projectList =
+                                              getJsonField(
+                                            (_model.projectListResp?.jsonBody ??
+                                                ''),
+                                            r'''$.data''',
+                                          )!
+                                                  .toList()
+                                                  .cast<dynamic>();
+                                          FFAppState().currentProject =
+                                              PoladioAPIsGroup.projectsCall
+                                                  .data(
+                                                    (_model.projectListResp
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  .first;
+                                        });
+                                      }
+                                      _model.schemeMaster =
+                                          await PoladioAPIsGroup
+                                              .schemesByProjectsCall
+                                              .call(
+                                        projectId: getJsonField(
+                                          FFAppState().currentProject,
+                                          r'''$.id''',
+                                        ),
+                                        token: FFAppState().token,
+                                      );
+                                      _model.unitMaster = await PoladioAPIsGroup
+                                          .unitsByProjectsCall
+                                          .call(
+                                        projectId: getJsonField(
+                                          FFAppState().currentProject,
+                                          r'''$.id''',
+                                        ),
+                                        token: FFAppState().token,
+                                      );
+                                      setState(() {
+                                        FFAppState().SchemeMasterList =
+                                            PoladioAPIsGroup
+                                                .schemesByProjectsCall
+                                                .data(
+                                                  (_model.schemeMaster
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<dynamic>();
+                                        FFAppState().UnitMasterList =
+                                            PoladioAPIsGroup.unitsByProjectsCall
+                                                .data(
+                                                  (_model.unitMaster
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<dynamic>();
+                                      });
 
                                       context.goNamed('Dashboard');
                                     } else {

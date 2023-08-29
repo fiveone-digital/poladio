@@ -77,51 +77,53 @@ class _WalkInWidgetState extends State<WalkInWidget> {
                 child: SideMenuWidget(),
               ),
             ),
-            appBar: AppBar(
-              backgroundColor: FlutterFlowTheme.of(context).primary,
-              automaticallyImplyLeading: false,
-              leading: FlutterFlowIconButton(
-                borderColor: Colors.transparent,
-                borderRadius: 30.0,
-                borderWidth: 1.0,
-                buttonSize: 60.0,
-                icon: Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                  size: 30.0,
-                ),
-                onPressed: () async {
-                  scaffoldKey.currentState!.openDrawer();
-                },
-              ),
-              title: Text(
-                'Walk-In',
-                style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Poppins',
-                      color: Colors.white,
-                      fontSize: 22.0,
-                    ),
-              ),
-              actions: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 5.0),
-                  child: FlutterFlowIconButton(
-                    borderRadius: 20.0,
-                    borderWidth: 1.0,
-                    buttonSize: 40.0,
-                    icon: Icon(
-                      Icons.search,
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                      size: 24.0,
-                    ),
-                    onPressed: () {
-                      print('Search pressed ...');
-                    },
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(80.0),
+              child: AppBar(
+                backgroundColor:
+                    FlutterFlowTheme.of(context).secondaryBackground,
+                automaticallyImplyLeading: false,
+                leading: FlutterFlowIconButton(
+                  borderColor: Colors.transparent,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 60.0,
+                  icon: Icon(
+                    Icons.menu,
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    size: 30.0,
                   ),
+                  onPressed: () async {
+                    scaffoldKey.currentState!.openDrawer();
+                  },
                 ),
-              ],
-              centerTitle: true,
-              elevation: 2.0,
+                title: Text(
+                  'Walk-In',
+                  style: FlutterFlowTheme.of(context).titleMedium,
+                ),
+                actions: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 5.0),
+                    child: FlutterFlowIconButton(
+                      borderRadius: 20.0,
+                      borderWidth: 1.0,
+                      buttonSize: 40.0,
+                      icon: Icon(
+                        Icons.search,
+                        color: FlutterFlowTheme.of(context).primary,
+                        size: 24.0,
+                      ),
+                      onPressed: () {
+                        print('Search pressed ...');
+                      },
+                    ),
+                  ),
+                ],
+                centerTitle: true,
+                toolbarHeight: 80.0,
+                elevation: 2.0,
+              ),
             ),
             body: SafeArea(
               top: true,
@@ -155,7 +157,7 @@ class _WalkInWidgetState extends State<WalkInWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('EnterNewWalkIn');
+                                context.pushNamed('EnterWalkin');
                               },
                               child: Icon(
                                 Icons.add_outlined,
@@ -195,15 +197,9 @@ class _WalkInWidgetState extends State<WalkInWidget> {
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  )
-                                ],
                                 border: Border.all(
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  color: FlutterFlowTheme.of(context)
+                                      .textFieldBorder,
                                 ),
                               ),
                               child: Column(

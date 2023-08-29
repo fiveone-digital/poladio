@@ -19,19 +19,20 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'enter_new_booking_model.dart';
-export 'enter_new_booking_model.dart';
+import 'enter_personal_walkin_model.dart';
+export 'enter_personal_walkin_model.dart';
 
-class EnterNewBookingWidget extends StatefulWidget {
-  const EnterNewBookingWidget({Key? key}) : super(key: key);
+class EnterPersonalWalkinWidget extends StatefulWidget {
+  const EnterPersonalWalkinWidget({Key? key}) : super(key: key);
 
   @override
-  _EnterNewBookingWidgetState createState() => _EnterNewBookingWidgetState();
+  _EnterPersonalWalkinWidgetState createState() =>
+      _EnterPersonalWalkinWidgetState();
 }
 
-class _EnterNewBookingWidgetState extends State<EnterNewBookingWidget>
+class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
     with TickerProviderStateMixin {
-  late EnterNewBookingModel _model;
+  late EnterPersonalWalkinModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -121,7 +122,7 @@ class _EnterNewBookingWidgetState extends State<EnterNewBookingWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => EnterNewBookingModel());
+    _model = createModel(context, () => EnterPersonalWalkinModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -232,7 +233,7 @@ class _EnterNewBookingWidgetState extends State<EnterNewBookingWidget>
               },
             ),
             title: Text(
-              'NEW BOOKING',
+              'NEW WALKIN',
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Poppins',
@@ -634,7 +635,7 @@ class _EnterNewBookingWidgetState extends State<EnterNewBookingWidget>
                                                             child:
                                                                 BookingNameComponentWidget(
                                                               key: Key(
-                                                                'Keyldw_${'booking_name_${ownerIndex.toString()}'}',
+                                                                'Keyxnb_${'booking_name_${ownerIndex.toString()}'}',
                                                               ),
                                                               bookingName:
                                                                   getJsonField(
@@ -680,7 +681,7 @@ class _EnterNewBookingWidgetState extends State<EnterNewBookingWidget>
                                                             child:
                                                                 BookingEmailComponentWidget(
                                                               key: Key(
-                                                                'Keyuw8_${'booking_email_${ownerIndex.toString()}'}',
+                                                                'Keyzi7_${'booking_email_${ownerIndex.toString()}'}',
                                                               ),
                                                               email:
                                                                   getJsonField(
@@ -706,7 +707,7 @@ class _EnterNewBookingWidgetState extends State<EnterNewBookingWidget>
                                                           child:
                                                               BookingPanComponentWidget(
                                                             key: Key(
-                                                              'Key5g2_${'pan${ownerIndex.toString()}'}',
+                                                              'Keyuau_${'pan${ownerIndex.toString()}'}',
                                                             ),
                                                             pan: getJsonField(
                                                               ownerItem,
@@ -4079,48 +4080,7 @@ class _EnterNewBookingWidgetState extends State<EnterNewBookingWidget>
                                 ),
                                 Flexible(
                                   child: FFButtonWidget(
-                                    onPressed: () async {
-                                      _model.bookingCreate =
-                                          await PoladioAPIsGroup
-                                              .bookingCreateCall
-                                              .call(
-                                        token: FFAppState().token,
-                                        ownersJson: FFAppState().ownerList,
-                                        unitId: functions.getDropdownItemId(
-                                            _model.unitNoValue,
-                                            FFAppState()
-                                                .UnitMasterList
-                                                .toList()),
-                                        mode: _model.paymentModeValue,
-                                        paymentSchemeId:
-                                            functions.getDropdownItemId(
-                                                _model.paymentSchemeValue,
-                                                FFAppState()
-                                                    .SchemeMasterList
-                                                    .toList()),
-                                        mobile: int.tryParse(
-                                            _model.contactController1.text),
-                                        bookingAmount: int.tryParse(
-                                            _model.amtController.text),
-                                        agreementValue: int.tryParse(_model
-                                            .agreementValueController.text),
-                                        address: _model.addressController.text,
-                                        bookingDate: functions
-                                            .dateformate(_model.datePicked),
-                                        paymentTerms:
-                                            _model.paymentTermsController.text,
-                                        projectId: getJsonField(
-                                          FFAppState().currentProject,
-                                          r'''$.id''',
-                                        ),
-                                      );
-                                      if ((_model.bookingCreate?.succeeded ??
-                                          true)) {
-                                        context.pushNamed('BookingList');
-                                      }
-
-                                      setState(() {});
-                                    },
+                                    onPressed: () async {},
                                     text: 'Submit',
                                     options: FFButtonOptions(
                                       width: 200.0,

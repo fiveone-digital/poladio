@@ -254,61 +254,64 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            icon: Icon(
-              Icons.chevron_left,
-              color: Colors.white,
-              size: 30.0,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(80.0),
+          child: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            automaticallyImplyLeading: false,
+            leading: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
+              icon: Icon(
+                Icons.keyboard_backspace,
+                color: FlutterFlowTheme.of(context).primaryText,
+                size: 30.0,
+              ),
+              onPressed: () async {
+                context.pop();
+              },
             ),
-            onPressed: () async {
-              context.pop();
-            },
-          ),
-          title: Text(
-            'Booking Details',
-            style: FlutterFlowTheme.of(context).labelLarge.override(
-                  fontFamily: 'Poppins',
-                  color: FlutterFlowTheme.of(context).primaryBackground,
-                  fontSize: 18.0,
-                ),
-          ),
-          actions: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 10.0, 0.0),
-              child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  context.pushNamed(
-                    'EditBooking',
-                    queryParameters: {
-                      'editBooking': serializeParam(
-                        widget.bookingDetail,
-                        ParamType.JSON,
-                      ),
-                    }.withoutNulls,
-                  );
-                },
-                child: FaIcon(
-                  FontAwesomeIcons.edit,
-                  color: FlutterFlowTheme.of(context).primaryBackground,
-                  size: 32.0,
+            title: Text(
+              'Booking Details',
+              style: FlutterFlowTheme.of(context).titleMedium,
+            ),
+            actions: [
+              Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed(
+                        'EditBooking',
+                        queryParameters: {
+                          'editBooking': serializeParam(
+                            widget.bookingDetail,
+                            ParamType.JSON,
+                          ),
+                        }.withoutNulls,
+                      );
+                    },
+                    child: FaIcon(
+                      FontAwesomeIcons.edit,
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      size: 30.0,
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ],
-          centerTitle: true,
-          elevation: 2.0,
+            ],
+            centerTitle: true,
+            toolbarHeight: 80.0,
+            elevation: 2.0,
+          ),
         ),
         body: SafeArea(
           top: true,
@@ -334,7 +337,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                             widget.bookingDetail,
                             r'''$.unit.number''',
                           ).toString()}',
-                          style: FlutterFlowTheme.of(context).displaySmall,
+                          style: FlutterFlowTheme.of(context).headlineMedium,
                         ).animateOnPageLoad(
                             animationsMap['textOnPageLoadAnimation1']!),
                       ),

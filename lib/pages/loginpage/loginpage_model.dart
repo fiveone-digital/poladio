@@ -22,6 +22,12 @@ class LoginpageModel extends FlutterFlowModel {
   String? Function(BuildContext, String?)? passwordControllerValidator;
   // Stores action output result for [Backend Call - API (Login)] action in SignIn widget.
   ApiCallResponse? loginResponse;
+  // Stores action output result for [Backend Call - API (Projects)] action in SignIn widget.
+  ApiCallResponse? projectListResp;
+  // Stores action output result for [Backend Call - API (Schemes By Projects)] action in SignIn widget.
+  ApiCallResponse? schemeMaster;
+  // Stores action output result for [Backend Call - API (Units By Projects)] action in SignIn widget.
+  ApiCallResponse? unitMaster;
 
   /// Initialization and disposal methods.
 
