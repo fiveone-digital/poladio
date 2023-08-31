@@ -105,48 +105,61 @@ class _AddNewSchemeWidgetState extends State<AddNewSchemeWidget> {
                 color: Color(0xFFA3AEBB),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 8.0),
-                child: TextFormField(
-                  controller: _model.nameController,
-                  autofocus: true,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    isDense: true,
-                    labelText: 'Name',
-                    labelStyle: FlutterFlowTheme.of(context).labelMedium,
-                    hintStyle: FlutterFlowTheme.of(context).labelMedium,
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).textFieldBorder,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(12.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'NAME',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context).labelColor,
+                            fontSize: 12.0,
+                          ),
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).primary,
-                        width: 2.0,
+                    TextFormField(
+                      controller: _model.nameController,
+                      autofocus: true,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        isDense: true,
+                        labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                        hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).textFieldBorder,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(0.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(0.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(0.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(0.0),
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(12.0),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      validator:
+                          _model.nameControllerValidator.asValidator(context),
                     ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).error,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).error,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                  validator:
-                      _model.nameControllerValidator.asValidator(context),
+                  ],
                 ),
               ),
               Row(
@@ -155,99 +168,136 @@ class _AddNewSchemeWidgetState extends State<AddNewSchemeWidget> {
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                      child: TextFormField(
-                        controller: _model.slabNameController,
-                        autofocus: true,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          isDense: true,
-                          labelText: 'Slab Name',
-                          labelStyle: FlutterFlowTheme.of(context).labelMedium,
-                          hintStyle: FlutterFlowTheme.of(context).labelMedium,
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color:
-                                  FlutterFlowTheme.of(context).textFieldBorder,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 5.0, 0.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'SLAB NAME',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  color:
+                                      FlutterFlowTheme.of(context).labelColor,
+                                  fontSize: 12.0,
+                                ),
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).primary,
-                              width: 2.0,
+                          TextFormField(
+                            controller: _model.slabNameController,
+                            autofocus: true,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              isDense: true,
+                              labelStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
+                              hintStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context)
+                                      .textFieldBorder,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(0.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(0.0),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(0.0),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(0.0),
+                              ),
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            maxLines: null,
+                            validator: _model.slabNameControllerValidator
+                                .asValidator(context),
                           ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                        validator: _model.slabNameControllerValidator
-                            .asValidator(context),
+                        ],
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                    child: Container(
-                      width: 130.0,
-                      child: TextFormField(
-                        controller: _model.slabPercentController,
-                        autofocus: true,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          isDense: true,
-                          labelText: 'Slab Percent',
-                          labelStyle: FlutterFlowTheme.of(context).labelMedium,
-                          hintStyle: FlutterFlowTheme.of(context).labelMedium,
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color:
-                                  FlutterFlowTheme.of(context).textFieldBorder,
-                              width: 2.0,
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(5.0, 16.0, 24.0, 0.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'SLAB %',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Poppins',
+                                color: FlutterFlowTheme.of(context).labelColor,
+                                fontSize: 12.0,
+                              ),
+                        ),
+                        Container(
+                          width: 130.0,
+                          child: TextFormField(
+                            controller: _model.slabPercentController,
+                            autofocus: true,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              isDense: true,
+                              labelStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
+                              hintStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context)
+                                      .textFieldBorder,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(0.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(0.0),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(0.0),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(0.0),
+                              ),
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).primary,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            validator: _model.slabPercentControllerValidator
+                                .asValidator(context),
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                        validator: _model.slabPercentControllerValidator
-                            .asValidator(context),
-                      ),
+                      ],
                     ),
                   ),
                 ],
@@ -257,7 +307,7 @@ class _AddNewSchemeWidgetState extends State<AddNewSchemeWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 24.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 24.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -299,28 +349,28 @@ class _AddNewSchemeWidgetState extends State<AddNewSchemeWidget> {
                                         .textFieldBorder,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(0.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).primary,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(0.0),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(0.0),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(0.0),
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context).bodyMedium,

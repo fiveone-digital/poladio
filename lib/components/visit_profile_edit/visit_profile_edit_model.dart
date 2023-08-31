@@ -1,10 +1,8 @@
 import '/components/chanel_partner_edit/chanel_partner_edit_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -14,52 +12,64 @@ import 'package:provider/provider.dart';
 class VisitProfileEditModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
-  // State field(s) for Name widget.
-  TextEditingController? nameController;
-  String? Function(BuildContext, String?)? nameControllerValidator;
-  // State field(s) for SrNo widget.
-  TextEditingController? srNoController;
-  String? Function(BuildContext, String?)? srNoControllerValidator;
-  // State field(s) for Phone widget.
-  TextEditingController? phoneController;
-  String? Function(BuildContext, String?)? phoneControllerValidator;
-  // State field(s) for Email widget.
-  TextEditingController? emailController;
-  String? Function(BuildContext, String?)? emailControllerValidator;
-  // State field(s) for ReasonPurchase widget.
-  String? reasonPurchaseValue;
-  FormFieldController<String>? reasonPurchaseValueController;
-  // State field(s) for Date widget.
-  TextEditingController? dateController;
-  String? Function(BuildContext, String?)? dateControllerValidator;
-  // State field(s) for Address widget.
-  TextEditingController? addressController;
-  String? Function(BuildContext, String?)? addressControllerValidator;
-  // State field(s) for LocPref widget.
-  TextEditingController? locPrefController;
-  String? Function(BuildContext, String?)? locPrefControllerValidator;
-  // State field(s) for EnquiryAt widget.
-  String? enquiryAtValue;
-  FormFieldController<String>? enquiryAtValueController;
-  // State field(s) for InterestedIn widget.
-  String? interestedInValue;
-  FormFieldController<String>? interestedInValueController;
-  // State field(s) for Budget widget.
-  String? budgetValue;
-  FormFieldController<String>? budgetValueController;
+  // State field(s) for yourName widget.
+  TextEditingController? yourNameController1;
+  String? Function(BuildContext, String?)? yourNameController1Validator;
+  // State field(s) for yourName widget.
+  TextEditingController? yourNameController2;
+  String? Function(BuildContext, String?)? yourNameController2Validator;
+  // State field(s) for yourName widget.
+  TextEditingController? yourNameController3;
+  String? Function(BuildContext, String?)? yourNameController3Validator;
+  // State field(s) for yourName widget.
+  TextEditingController? yourNameController4;
+  String? Function(BuildContext, String?)? yourNameController4Validator;
+  // State field(s) for yourName widget.
+  TextEditingController? yourNameController5;
+  String? Function(BuildContext, String?)? yourNameController5Validator;
+  // State field(s) for yourName widget.
+  TextEditingController? yourNameController6;
+  String? Function(BuildContext, String?)? yourNameController6Validator;
+  // State field(s) for yourName widget.
+  TextEditingController? yourNameController7;
+  String? Function(BuildContext, String?)? yourNameController7Validator;
+  // State field(s) for yourName widget.
+  TextEditingController? yourNameController8;
+  String? Function(BuildContext, String?)? yourNameController8Validator;
+  // State field(s) for yourName widget.
+  TextEditingController? yourNameController9;
+  String? Function(BuildContext, String?)? yourNameController9Validator;
+  // State field(s) for yourName widget.
+  TextEditingController? yourNameController10;
+  String? Function(BuildContext, String?)? yourNameController10Validator;
+  // State field(s) for yourName widget.
+  TextEditingController? yourNameController11;
+  String? Function(BuildContext, String?)? yourNameController11Validator;
+  // State field(s) for yourName widget.
+  TextEditingController? yourNameController12;
+  String? Function(BuildContext, String?)? yourNameController12Validator;
+  // State field(s) for yourName widget.
+  TextEditingController? yourNameController13;
+  String? Function(BuildContext, String?)? yourNameController13Validator;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
 
   void dispose() {
-    nameController?.dispose();
-    srNoController?.dispose();
-    phoneController?.dispose();
-    emailController?.dispose();
-    dateController?.dispose();
-    addressController?.dispose();
-    locPrefController?.dispose();
+    yourNameController1?.dispose();
+    yourNameController2?.dispose();
+    yourNameController3?.dispose();
+    yourNameController4?.dispose();
+    yourNameController5?.dispose();
+    yourNameController6?.dispose();
+    yourNameController7?.dispose();
+    yourNameController8?.dispose();
+    yourNameController9?.dispose();
+    yourNameController10?.dispose();
+    yourNameController11?.dispose();
+    yourNameController12?.dispose();
+    yourNameController13?.dispose();
   }
 
   /// Action blocks are added here.

@@ -71,7 +71,7 @@ class _DemandHistoryWidgetState extends State<DemandHistoryWidget>
       widget.demandHist,
       r'''$.payment_demands[0].demand_received''',
     ).toString().toString());
-    _model.netBalController ??= TextEditingController();
+    _model.netBalController ??= TextEditingController(text: '123455');
     _model.interestController ??= TextEditingController(
         text: getJsonField(
       widget.demandHist,
