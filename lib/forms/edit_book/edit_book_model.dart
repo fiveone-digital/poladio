@@ -10,7 +10,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
@@ -21,7 +20,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class EnterNewBookingModel extends FlutterFlowModel {
+class EditBookModel extends FlutterFlowModel {
   ///  Local state fields for this page.
 
   int currentTab = 0;
@@ -38,9 +37,9 @@ class EnterNewBookingModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Backend Call - API (Units By Projects)] action in EnterNewBooking widget.
+  // Stores action output result for [Backend Call - API (Units By Projects)] action in EditBook widget.
   ApiCallResponse? apiResultsxm;
-  // Stores action output result for [Backend Call - API (Schemes By Projects)] action in EnterNewBooking widget.
+  // Stores action output result for [Backend Call - API (Schemes By Projects)] action in EditBook widget.
   ApiCallResponse? apiResult3nf;
   // Models for bookingNameComponent dynamic component.
   late FlutterFlowDynamicModels<BookingNameComponentModel>
@@ -120,8 +119,6 @@ class EnterNewBookingModel extends FlutterFlowModel {
   // State field(s) for ChannelAddress widget.
   TextEditingController? channelAddressController;
   String? Function(BuildContext, String?)? channelAddressControllerValidator;
-  // Stores action output result for [Backend Call - API (Booking Create)] action in Button widget.
-  ApiCallResponse? bookingCreate;
 
   /// Initialization and disposal methods.
 

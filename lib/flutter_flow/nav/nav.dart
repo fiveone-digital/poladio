@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 
+import '/backend/schema/structs/index.dart';
+
 import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -129,6 +131,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'EnterPersonalWalkin',
           path: '/enterPersonalWalkin',
           builder: (context, params) => EnterPersonalWalkinWidget(),
+        ),
+        FFRoute(
+          name: 'EditBook',
+          path: '/editBook',
+          builder: (context, params) => EditBookWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

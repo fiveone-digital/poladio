@@ -25,6 +25,7 @@ class PoladioAPIsGroup {
   static UnitsByProjectsCall unitsByProjectsCall = UnitsByProjectsCall();
   static SchemesByProjectsCall schemesByProjectsCall = SchemesByProjectsCall();
   static ProjectsCall projectsCall = ProjectsCall();
+  static CreateWalkInCall createWalkInCall = CreateWalkInCall();
 }
 
 class LoginCall {
@@ -472,6 +473,66 @@ class ProjectsCall {
         response,
         r'''$.data[:].name''',
       );
+}
+
+class CreateWalkInCall {
+  Future<ApiCallResponse> call({
+    String? token = '',
+    int? projectId,
+    String? bookingName = '',
+    String? enquiryAt = '',
+    int? srNo,
+    String? date = '',
+    String? residentialAddress = '',
+    int? mobile,
+    int? residentialMobile,
+    int? officeMobile,
+    String? email = '',
+    String? interestedIn = '',
+    String? budget = '',
+    String? locationPreferred = '',
+    String? source = '',
+    String? reasonForPurchase = '',
+    String? officeAddress = '',
+    String? website = '',
+    String? exisitingBookingName = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Create WalkIn',
+      apiUrl: '${PoladioAPIsGroup.baseUrl}/projects/${projectId}/prospect',
+      callType: ApiCallType.POST,
+      headers: {
+        ...PoladioAPIsGroup.headers,
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {
+        'token': token,
+        'project_id': projectId,
+        'booking_name': bookingName,
+        'enquiry_at': enquiryAt,
+        'sr_no': srNo,
+        'date': date,
+        'residential_address': residentialAddress,
+        'office_address': officeAddress,
+        'mobile': mobile,
+        'residential_mobile': residentialMobile,
+        'office_mobile': officeMobile,
+        'email': email,
+        'interested_in': interestedIn,
+        'budget': budget,
+        'location_preferred': locationPreferred,
+        'source': source,
+        'reason_for_purchase': reasonForPurchase,
+        'website': website,
+        'existing_booking_name': exisitingBookingName,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
 }
 
 /// End Poladio APIs Group Code

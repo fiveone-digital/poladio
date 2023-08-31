@@ -26,12 +26,12 @@ class PaymentHistoryDetailsModel extends FlutterFlowModel {
   // State field(s) for PaidDate widget.
   TextEditingController? paidDateController;
   String? Function(BuildContext, String?)? paidDateControllerValidator;
-  // State field(s) for BankBranch widget.
-  TextEditingController? bankBranchController1;
-  String? Function(BuildContext, String?)? bankBranchController1Validator;
-  // State field(s) for BankBranch widget.
-  TextEditingController? bankBranchController2;
-  String? Function(BuildContext, String?)? bankBranchController2Validator;
+  // State field(s) for Bank widget.
+  TextEditingController? bankController;
+  String? Function(BuildContext, String?)? bankControllerValidator;
+  // State field(s) for Branch widget.
+  TextEditingController? branchController;
+  String? Function(BuildContext, String?)? branchControllerValidator;
   // State field(s) for Mode widget.
   TextEditingController? modeController;
   String? Function(BuildContext, String?)? modeControllerValidator;
@@ -52,8 +52,8 @@ class PaymentHistoryDetailsModel extends FlutterFlowModel {
     recNoController?.dispose();
     recDateController?.dispose();
     paidDateController?.dispose();
-    bankBranchController1?.dispose();
-    bankBranchController2?.dispose();
+    bankController?.dispose();
+    branchController?.dispose();
     modeController?.dispose();
     refNoController?.dispose();
     gstController?.dispose();

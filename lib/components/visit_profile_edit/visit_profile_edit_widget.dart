@@ -158,7 +158,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 fontFamily: 'Outfit',
                                 color: Color(0xFF15161E),
-                                fontSize: 24.0,
+                                fontSize: 20.0,
                                 fontWeight: FontWeight.w500,
                               ),
                     ),
@@ -170,8 +170,8 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                       'Below are the visit details',
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: 'Plus Jakarta Sans',
-                            color: Color(0xFF606A85),
-                            fontSize: 14.0,
+                            color: FlutterFlowTheme.of(context).labelColor,
+                            fontSize: 12.0,
                             fontWeight: FontWeight.w500,
                           ),
                     ),
@@ -201,6 +201,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Booking Name',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -220,7 +221,8 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -250,7 +252,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -279,6 +281,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Sr.No',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -298,7 +301,8 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -328,7 +332,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -362,6 +366,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Contact No',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -381,7 +386,8 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -411,7 +417,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -440,6 +446,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Email',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -459,7 +466,8 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -489,7 +497,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -529,7 +537,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                 onChanged: (val) => setState(
                                     () => _model.reasonPurchaseValue = val),
                                 width: 200.0,
-                                height: 58.0,
+                                height: 50.0,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -546,7 +554,8 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                 ),
                                 fillColor: Colors.white,
                                 elevation: 2.0,
-                                borderColor: Color(0xFFE5E7EB),
+                                borderColor: FlutterFlowTheme.of(context)
+                                    .textFieldBorder,
                                 borderWidth: 2.0,
                                 borderRadius: 12.0,
                                 margin: EdgeInsetsDirectional.fromSTEB(
@@ -568,6 +577,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Date(dd/mm/yyyy)',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -587,7 +597,8 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -617,7 +628,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -653,6 +664,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Residential Address',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -672,7 +684,8 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -702,7 +715,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -738,6 +751,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Location Preferred',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -757,7 +771,8 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -787,7 +802,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -826,7 +841,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                 onChanged: (val) =>
                                     setState(() => _model.enquiryAtValue = val),
                                 width: 200.0,
-                                height: 58.0,
+                                height: 50.0,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -843,7 +858,8 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                 ),
                                 fillColor: Colors.white,
                                 elevation: 2.0,
-                                borderColor: Color(0xFFE5E7EB),
+                                borderColor: FlutterFlowTheme.of(context)
+                                    .textFieldBorder,
                                 borderWidth: 2.0,
                                 borderRadius: 12.0,
                                 margin: EdgeInsetsDirectional.fromSTEB(
@@ -871,7 +887,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                 onChanged: (val) => setState(
                                     () => _model.interestedInValue = val),
                                 width: 200.0,
-                                height: 58.0,
+                                height: 50.0,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -888,7 +904,8 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                 ),
                                 fillColor: Colors.white,
                                 elevation: 2.0,
-                                borderColor: Color(0xFFE5E7EB),
+                                borderColor: FlutterFlowTheme.of(context)
+                                    .textFieldBorder,
                                 borderWidth: 2.0,
                                 borderRadius: 12.0,
                                 margin: EdgeInsetsDirectional.fromSTEB(
@@ -921,7 +938,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                 onChanged: (val) =>
                                     setState(() => _model.budgetValue = val),
                                 width: 150.0,
-                                height: 58.0,
+                                height: 50.0,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -938,7 +955,8 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                 ),
                                 fillColor: Colors.white,
                                 elevation: 2.0,
-                                borderColor: Color(0xFFE5E7EB),
+                                borderColor: FlutterFlowTheme.of(context)
+                                    .textFieldBorder,
                                 borderWidth: 2.0,
                                 borderRadius: 12.0,
                                 margin: EdgeInsetsDirectional.fromSTEB(
@@ -966,11 +984,16 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                             onPressed: () async {
                               Navigator.pop(context);
                             },
-                            text: 'Cancel',
+                            text: '',
+                            icon: Icon(
+                              Icons.chevron_left,
+                              size: 30.0,
+                            ),
                             options: FFButtonOptions(
-                              height: 44.0,
+                              width: 60.0,
+                              height: 60.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
+                                  10.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context)
@@ -988,7 +1011,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                 color: Colors.black,
                                 width: 2.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(30.0),
                               hoverColor: Color(0xFFE5E7EB),
                               hoverBorderSide: BorderSide(
                                 color: Color(0xFFE5E7EB),
@@ -1016,12 +1039,16 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                 },
                               ).then((value) => setState(() {}));
                             },
-                            text: 'Next',
+                            text: '',
+                            icon: Icon(
+                              Icons.chevron_right,
+                              size: 30.0,
+                            ),
                             options: FFButtonOptions(
-                              width: 100.0,
-                              height: 44.0,
+                              width: 60.0,
+                              height: 60.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
+                                  10.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primaryText,
@@ -1038,7 +1065,7 @@ class _VisitProfileEditWidgetState extends State<VisitProfileEditWidget>
                                 color: Colors.black,
                                 width: 2.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(30.0),
                               hoverColor: Color(0x4D9489F5),
                               hoverBorderSide: BorderSide(
                                 color: Color(0xFF6F61EF),

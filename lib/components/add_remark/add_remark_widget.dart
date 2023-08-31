@@ -194,6 +194,7 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Remark',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -213,7 +214,8 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -243,7 +245,7 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -311,6 +313,7 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
                                   textCapitalization: TextCapitalization.none,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Next Follow-Up Date',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -330,7 +333,8 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -360,7 +364,7 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium

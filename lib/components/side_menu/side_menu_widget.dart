@@ -49,7 +49,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
           width: double.infinity,
           height: 100.0,
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).primary,
+            color: FlutterFlowTheme.of(context).secondary,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
@@ -60,7 +60,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Poppins',
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      color: FlutterFlowTheme.of(context).primaryText,
                       fontSize: 28.0,
                     ),
               ),
@@ -320,7 +320,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
               height: 40.0,
               padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-              color: Color(0xFF6F61EF),
+              color: FlutterFlowTheme.of(context).primary,
               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                     fontFamily: 'Poppins',
                     color: Colors.white,

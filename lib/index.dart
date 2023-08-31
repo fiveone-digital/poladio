@@ -20,3 +20,4 @@ export '/pages/projects/projects_widget.dart' show ProjectsWidget;
 export '/forms/enter_walkin/enter_walkin_widget.dart' show EnterWalkinWidget;
 export '/forms/enter_personal_walkin/enter_personal_walkin_widget.dart'
     show EnterPersonalWalkinWidget;
+export '/forms/edit_book/edit_book_widget.dart' show EditBookWidget;

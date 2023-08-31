@@ -301,8 +301,8 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                     },
                     child: FaIcon(
                       FontAwesomeIcons.edit,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      size: 30.0,
+                      color: FlutterFlowTheme.of(context).primary,
+                      size: 24.0,
                     ),
                   ),
                 ),
@@ -327,8 +327,8 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(16.0, 5.0, 0.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 16.0, 0.0, 0.0),
                         child: Text(
                           '${getJsonField(
                             widget.bookingDetail,
@@ -337,7 +337,12 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                             widget.bookingDetail,
                             r'''$.unit.number''',
                           ).toString()}',
-                          style: FlutterFlowTheme.of(context).headlineMedium,
+                          style: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .override(
+                                fontFamily: 'Poppins',
+                                fontSize: 20.0,
+                              ),
                         ).animateOnPageLoad(
                             animationsMap['textOnPageLoadAnimation1']!),
                       ),
@@ -517,8 +522,12 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                           maxWidth: 500.0,
                         ),
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                           borderRadius: BorderRadius.circular(12.0),
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).textFieldBorder,
+                          ),
                         ),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -548,17 +557,22 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                       .displaySmall
                                       .override(
                                         fontFamily: 'Poppins',
-                                        fontSize: 36.0,
+                                        fontSize: 32.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
                               ),
-                              Text(
-                                'Last Payment - ${getJsonField(
-                                  widget.bookingDetail,
-                                  r'''$.booking_payment.date''',
-                                ).toString()}',
-                                style: FlutterFlowTheme.of(context).labelMedium,
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 12.0),
+                                child: Text(
+                                  'Last Payment - ${getJsonField(
+                                    widget.bookingDetail,
+                                    r'''$.booking_payment.date''',
+                                  ).toString()}',
+                                  style:
+                                      FlutterFlowTheme.of(context).labelMedium,
+                                ),
                               ),
                               FFButtonWidget(
                                 onPressed: () {
@@ -572,8 +586,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
+                                  color: Color(0x00F1F4F8),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -607,9 +620,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                               FlutterFlowTheme.of(context).secondaryBackground,
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            width: 2.0,
+                            color: FlutterFlowTheme.of(context).textFieldBorder,
                           ),
                         ),
                         child: Padding(
@@ -621,7 +632,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Agreement On ${getJsonField(
+                                'AGREEMENT ON${getJsonField(
                                   widget.bookingDetail,
                                   r'''$.booking_payment.receipt_date''',
                                 ).toString()}',
@@ -659,7 +670,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
                                 child: Text(
-                                  'Current Due',
+                                  'CURRENT DUE',
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
@@ -750,9 +761,13 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        'Demands Due',
+                                        'DEMANDS DUE',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.w500,
+                                            ),
                                       ),
                                     ),
                                   ),
@@ -783,9 +798,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                               FlutterFlowTheme.of(context).secondaryBackground,
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            width: 2.0,
+                            color: FlutterFlowTheme.of(context).textFieldBorder,
                           ),
                         ),
                         child: Padding(
@@ -809,12 +822,16 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'Booked On ${getJsonField(
+                                        'BOOKED ON${getJsonField(
                                           widget.bookingDetail,
                                           r'''$.booking_payment.date''',
                                         ).toString()}',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyLarge,
+                                            .bodyLarge
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 14.0,
+                                            ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -884,9 +901,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                               FlutterFlowTheme.of(context).secondaryBackground,
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            width: 2.0,
+                            color: FlutterFlowTheme.of(context).textFieldBorder,
                           ),
                         ),
                         child: Padding(

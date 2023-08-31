@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:share_plus/share_plus.dart';
 import 'payment_hist_model.dart';
 export 'payment_hist_model.dart';
 
@@ -134,29 +133,6 @@ class _PaymentHistWidgetState extends State<PaymentHistWidget> {
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 10.0, 0.0, 0.0),
-                      child: Text(
-                        'Payments',
-                        style: FlutterFlowTheme.of(context).headlineMedium,
-                      ),
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 4.0, 0.0, 0.0),
-                          child: Text(
-                            'Below are your most recent payments',
-                            textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context).labelMedium,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 24.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -209,6 +185,8 @@ class _PaymentHistWidgetState extends State<PaymentHistWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment
                                                       .spaceBetween,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -225,68 +203,43 @@ class _PaymentHistWidgetState extends State<PaymentHistWidget> {
                                                             .start,
                                                     children: [
                                                       Text(
+                                                        '#${getJsonField(
+                                                          paymentsItem,
+                                                          r'''$.receipt_no''',
+                                                        ).toString()}',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontSize: 12.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w300,
+                                                            ),
+                                                      ),
+                                                      Text(
                                                         getJsonField(
                                                           paymentsItem,
                                                           r'''$.booking.owner.name''',
                                                         ).toString(),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .labelMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              fontSize: 18.0,
-                                                            ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    7.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          'Rec No: ${getJsonField(
-                                                            paymentsItem,
-                                                            r'''$.receipt_no''',
-                                                          ).toString()}',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    4.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          getJsonField(
-                                                            paymentsItem,
-                                                            r'''$.receipt_date''',
-                                                          ).toString(),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
-                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                ),
                                                       ),
                                                     ],
                                                   ),
@@ -295,28 +248,29 @@ class _PaymentHistWidgetState extends State<PaymentHistWidget> {
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
+                                                      MainAxisAlignment.start,
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.end,
+                                                      CrossAxisAlignment.center,
                                                   children: [
                                                     Text(
-                                                      getJsonField(
+                                                      'Rs.${getJsonField(
                                                         paymentsItem,
                                                         r'''$.booking.amount_received''',
-                                                      ).toString(),
+                                                      ).toString()}',
                                                       textAlign:
                                                           TextAlign.justify,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .headlineSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            fontSize: 18.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .headlineSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 16.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
                                                     ),
                                                   ],
                                                 ),
@@ -328,107 +282,108 @@ class _PaymentHistWidgetState extends State<PaymentHistWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .accent4,
                                           ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 5.0),
-                                                child: FlutterFlowIconButton(
-                                                  borderRadius: 20.0,
-                                                  borderWidth: 1.0,
-                                                  buttonSize: 40.0,
-                                                  icon: Icon(
-                                                    Icons.info_outline,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    size: 26.0,
-                                                  ),
-                                                  onPressed: () async {
-                                                    await showModalBottomSheet(
-                                                      isScrollControlled: true,
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      enableDrag: false,
-                                                      context: context,
-                                                      builder: (context) {
-                                                        return GestureDetector(
-                                                          onTap: () => FocusScope
-                                                                  .of(context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode),
-                                                          child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                PaymentHistoryDetailsWidget(
-                                                              payments:
-                                                                  paymentsItem,
-                                                            ),
-                                                          ),
-                                                        );
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 16.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  getJsonField(
+                                                    paymentsItem,
+                                                    r'''$.receipt_date''',
+                                                  ).toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        fontSize: 14.0,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.end,
+                                                  children: [
+                                                    FlutterFlowIconButton(
+                                                      borderWidth: 1.0,
+                                                      icon: Icon(
+                                                        Icons.info_outline,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 20.0,
+                                                      ),
+                                                      onPressed: () async {
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return GestureDetector(
+                                                              onTap: () => FocusScope
+                                                                      .of(
+                                                                          context)
+                                                                  .requestFocus(
+                                                                      _model
+                                                                          .unfocusNode),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    PaymentHistoryDetailsWidget(
+                                                                  payments:
+                                                                      paymentsItem,
+                                                                ),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            setState(() {}));
                                                       },
-                                                    ).then((value) =>
-                                                        setState(() {}));
-                                                  },
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 5.0),
-                                                child: FlutterFlowIconButton(
-                                                  borderColor:
-                                                      Colors.transparent,
-                                                  borderRadius: 20.0,
-                                                  borderWidth: 1.0,
-                                                  buttonSize: 40.0,
-                                                  icon: Icon(
-                                                    Icons.file_download,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .success,
-                                                    size: 30.0,
-                                                  ),
-                                                  onPressed: () {
-                                                    print(
-                                                        'Download pressed ...');
-                                                  },
-                                                ),
-                                              ),
-                                              Builder(
-                                                builder: (context) => Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 5.0),
-                                                  child: FlutterFlowIconButton(
-                                                    borderColor:
-                                                        Colors.transparent,
-                                                    borderRadius: 20.0,
-                                                    borderWidth: 1.0,
-                                                    buttonSize: 40.0,
-                                                    icon: Icon(
-                                                      Icons.share_sharp,
-                                                      color: Color(0xFF2442E8),
-                                                      size: 26.0,
                                                     ),
-                                                    onPressed: () async {
-                                                      await Share.share(
-                                                        '',
-                                                        sharePositionOrigin:
-                                                            getWidgetBoundingBox(
-                                                                context),
-                                                      );
-                                                    },
-                                                  ),
+                                                    FlutterFlowIconButton(
+                                                      borderColor:
+                                                          Colors.transparent,
+                                                      borderRadius: 20.0,
+                                                      borderWidth: 1.0,
+                                                      icon: Icon(
+                                                        Icons.file_download,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .success,
+                                                        size: 20.0,
+                                                      ),
+                                                      onPressed: () {
+                                                        print(
+                                                            'Download pressed ...');
+                                                      },
+                                                    ),
+                                                  ],
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ],
                                       ),

@@ -111,12 +111,13 @@ class _AddNewSchemeWidgetState extends State<AddNewSchemeWidget> {
                   autofocus: true,
                   obscureText: false,
                   decoration: InputDecoration(
+                    isDense: true,
                     labelText: 'Name',
                     labelStyle: FlutterFlowTheme.of(context).labelMedium,
                     hintStyle: FlutterFlowTheme.of(context).labelMedium,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color(0xFFA3AEBB),
+                        color: FlutterFlowTheme.of(context).textFieldBorder,
                         width: 2.0,
                       ),
                       borderRadius: BorderRadius.circular(12.0),
@@ -160,12 +161,14 @@ class _AddNewSchemeWidgetState extends State<AddNewSchemeWidget> {
                         autofocus: true,
                         obscureText: false,
                         decoration: InputDecoration(
+                          isDense: true,
                           labelText: 'Slab Name',
                           labelStyle: FlutterFlowTheme.of(context).labelMedium,
                           hintStyle: FlutterFlowTheme.of(context).labelMedium,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFA3AEBB),
+                              color:
+                                  FlutterFlowTheme.of(context).textFieldBorder,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
@@ -207,12 +210,14 @@ class _AddNewSchemeWidgetState extends State<AddNewSchemeWidget> {
                         autofocus: true,
                         obscureText: false,
                         decoration: InputDecoration(
+                          isDense: true,
                           labelText: 'Slab Percent',
                           labelStyle: FlutterFlowTheme.of(context).labelMedium,
                           hintStyle: FlutterFlowTheme.of(context).labelMedium,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFFA3AEBB),
+                              color:
+                                  FlutterFlowTheme.of(context).textFieldBorder,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
@@ -282,6 +287,7 @@ class _AddNewSchemeWidgetState extends State<AddNewSchemeWidget> {
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
+                                isDense: true,
                                 labelText: '25',
                                 labelStyle:
                                     FlutterFlowTheme.of(context).labelMedium,
@@ -289,7 +295,8 @@ class _AddNewSchemeWidgetState extends State<AddNewSchemeWidget> {
                                     FlutterFlowTheme.of(context).labelMedium,
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Color(0xFFA3AEBB),
+                                    color: FlutterFlowTheme.of(context)
+                                        .textFieldBorder,
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
@@ -341,7 +348,7 @@ class _AddNewSchemeWidgetState extends State<AddNewSchemeWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).secondary,
+                        color: FlutterFlowTheme.of(context).primaryText,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Poppins',

@@ -195,7 +195,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                               .override(
                                 fontFamily: 'Outfit',
                                 color: Color(0xFF15161E),
-                                fontSize: 24.0,
+                                fontSize: 20.0,
                                 fontWeight: FontWeight.w500,
                               ),
                         ),
@@ -273,8 +273,8 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                       'Below are the visit details',
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: 'Plus Jakarta Sans',
-                            color: Color(0xFF606A85),
-                            fontSize: 14.0,
+                            color: FlutterFlowTheme.of(context).labelColor,
+                            fontSize: 12.0,
                             fontWeight: FontWeight.w500,
                           ),
                     ),
@@ -294,161 +294,185 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 5.0, 0.0),
-                              child: Container(
-                                width: 200.0,
-                                child: TextFormField(
-                                  controller: _model.yourNameController1,
-                                  autofocus: true,
-                                  readOnly: true,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    labelText: 'Booking Name',
-                                    labelStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF606A85),
-                                          fontSize: 14.0,
-                                          fontWeight: FontWeight.w500,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 16.0, 5.0, 0.0),
+                                  child: Container(
+                                    width: 200.0,
+                                    child: TextFormField(
+                                      controller: _model.yourNameController1,
+                                      autofocus: true,
+                                      readOnly: true,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        isDense: true,
+                                        labelText: 'Booking Name',
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Plus Jakarta Sans',
+                                              color: Color(0xFF606A85),
+                                              fontSize: 14.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Plus Jakarta Sans',
+                                              color: Color(0xFF606A85),
+                                              fontSize: 14.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .textFieldBorder,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
                                         ),
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF606A85),
-                                          fontSize: 14.0,
-                                          fontWeight: FontWeight.w500,
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0xFF6F61EF),
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
                                         ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
-                                        width: 2.0,
+                                        errorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0xFFFF5963),
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0xFFFF5963),
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                        contentPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                20.0, 12.0, 20.0, 24.0),
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0xFF15161E),
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                      maxLines: null,
+                                      cursorColor: Color(0xFF6F61EF),
+                                      validator: _model
+                                          .yourNameController1Validator
+                                          .asValidator(context),
                                     ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFF6F61EF),
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFFF5963),
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFFF5963),
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    contentPadding:
-                                        EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Plus Jakarta Sans',
-                                        color: Color(0xFF15161E),
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                  maxLines: null,
-                                  cursorColor: Color(0xFF6F61EF),
-                                  validator: _model.yourNameController1Validator
-                                      .asValidator(context),
                                 ),
-                              ),
+                              ],
                             ),
                           ),
                           Expanded(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 16.0, 16.0, 0.0),
-                              child: Container(
-                                width: 150.0,
-                                child: TextFormField(
-                                  controller: _model.yourNameController2,
-                                  autofocus: true,
-                                  readOnly: true,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    labelText: 'Sr.No',
-                                    labelStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF606A85),
-                                          fontSize: 14.0,
-                                          fontWeight: FontWeight.w500,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5.0, 16.0, 16.0, 0.0),
+                                  child: Container(
+                                    width: 150.0,
+                                    child: TextFormField(
+                                      controller: _model.yourNameController2,
+                                      autofocus: true,
+                                      readOnly: true,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        isDense: true,
+                                        labelText: 'Sr.No',
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Plus Jakarta Sans',
+                                              color: Color(0xFF606A85),
+                                              fontSize: 14.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Plus Jakarta Sans',
+                                              color: Color(0xFF15161E),
+                                              fontSize: 14.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .textFieldBorder,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
                                         ),
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF15161E),
-                                          fontSize: 14.0,
-                                          fontWeight: FontWeight.w500,
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0xFF6F61EF),
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
                                         ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
-                                        width: 2.0,
+                                        errorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0xFFFF5963),
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0xFFFF5963),
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                        contentPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                20.0, 12.0, 20.0, 24.0),
                                       ),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0xFF15161E),
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                      maxLines: null,
+                                      cursorColor: Color(0xFF6F61EF),
+                                      validator: _model
+                                          .yourNameController2Validator
+                                          .asValidator(context),
                                     ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFF6F61EF),
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFFF5963),
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFFF5963),
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    contentPadding:
-                                        EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Plus Jakarta Sans',
-                                        color: Color(0xFF15161E),
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                  maxLines: null,
-                                  cursorColor: Color(0xFF6F61EF),
-                                  validator: _model.yourNameController2Validator
-                                      .asValidator(context),
                                 ),
-                              ),
+                              ],
                             ),
                           ),
                         ],
@@ -468,6 +492,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Contact No',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -487,7 +512,8 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -517,7 +543,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -547,6 +573,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Email',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -566,7 +593,8 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -596,7 +624,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -631,6 +659,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Office No',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -650,7 +679,8 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -680,7 +710,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -710,6 +740,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Resident No',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -729,7 +760,8 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -759,7 +791,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -794,6 +826,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Reason for Purchase',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -813,7 +846,8 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -843,7 +877,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -873,6 +907,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Date',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -892,7 +927,8 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -922,7 +958,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -959,6 +995,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Residential Address',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -978,7 +1015,8 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -1008,7 +1046,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -1045,6 +1083,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Location Preferred',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -1064,7 +1103,8 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -1094,7 +1134,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -1130,6 +1170,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Enquiry At',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -1149,7 +1190,8 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -1179,7 +1221,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -1210,6 +1252,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Interested In',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -1229,7 +1272,8 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -1259,7 +1303,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -1290,6 +1334,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: true,
                                     labelText: 'Budget',
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -1309,7 +1354,8 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0xFFE5E7EB),
+                                        color: FlutterFlowTheme.of(context)
+                                            .textFieldBorder,
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -1339,7 +1385,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                     fillColor: Colors.white,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 24.0, 20.0, 24.0),
+                                            20.0, 12.0, 20.0, 24.0),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -1375,11 +1421,16 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                             onPressed: () async {
                               Navigator.pop(context);
                             },
-                            text: 'Cancel',
+                            text: '',
+                            icon: Icon(
+                              Icons.chevron_left,
+                              size: 30.0,
+                            ),
                             options: FFButtonOptions(
-                              height: 44.0,
+                              width: 60.0,
+                              height: 60.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
+                                  10.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context)
@@ -1398,7 +1449,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                 color: Colors.black,
                                 width: 2.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(30.0),
                               hoverColor: Color(0xFFE5E7EB),
                               hoverBorderSide: BorderSide(
                                 color: Color(0xFFE5E7EB),
@@ -1426,12 +1477,16 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                 },
                               ).then((value) => setState(() {}));
                             },
-                            text: 'Next',
+                            text: '',
+                            icon: Icon(
+                              Icons.chevron_right_rounded,
+                              size: 30.0,
+                            ),
                             options: FFButtonOptions(
-                              width: 100.0,
-                              height: 44.0,
+                              width: 60.0,
+                              height: 60.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
+                                  10.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primaryText,
@@ -1448,7 +1503,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                 color: Colors.black,
                                 width: 2.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(30.0),
                               hoverColor: Color(0x4D9489F5),
                               hoverBorderSide: BorderSide(
                                 color: Color(0xFF6F61EF),

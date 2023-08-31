@@ -127,79 +127,78 @@ class _WalkInWidgetState extends State<WalkInWidget> {
             ),
             body: SafeArea(
               top: true,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            'Recent Walk-In',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(1.0, -1.0),
-                          child: Padding(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 10.0, 0.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed('EnterWalkin');
-                              },
-                              child: Icon(
-                                Icons.add_outlined,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 30.0,
+                                10.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              'Recent Walk-In',
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(1.0, -1.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('EnterWalkin');
+                                },
+                                child: Icon(
+                                  Icons.add_outlined,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 30.0,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  Builder(
-                    builder: (context) {
-                      final prospects = PoladioAPIsGroup.prospectCall
-                              .data(
-                                walkInProspectResponse.jsonBody,
-                              )
-                              ?.map((e) => e)
-                              .toList()
-                              ?.toList() ??
-                          [];
-                      return ListView.builder(
-                        padding: EdgeInsets.zero,
-                        primary: false,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: prospects.length,
-                        itemBuilder: (context, prospectsIndex) {
-                          final prospectsItem = prospects[prospectsIndex];
-                          return Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 12.0, 0.0, 1.0),
-                            child: Container(
+                    Builder(
+                      builder: (context) {
+                        final prospects = PoladioAPIsGroup.prospectCall
+                                .data(
+                                  walkInProspectResponse.jsonBody,
+                                )
+                                ?.map((e) => e)
+                                .toList()
+                                ?.toList() ??
+                            [];
+                        return ListView.builder(
+                          padding: EdgeInsets.zero,
+                          primary: false,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: prospects.length,
+                          itemBuilder: (context, prospectsIndex) {
+                            final prospectsItem = prospects[prospectsIndex];
+                            return Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(context)
-                                      .textFieldBorder,
+                                      .subHeadingColor,
+                                  width: 0.3,
                                 ),
                               ),
                               child: Column(
@@ -230,9 +229,9 @@ class _WalkInWidgetState extends State<WalkInWidget> {
                                                       .bodyLarge
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 20.0,
+                                                        fontSize: 16.0,
                                                         fontWeight:
-                                                            FontWeight.w600,
+                                                            FontWeight.w500,
                                                       ),
                                             ),
                                             Row(
@@ -252,9 +251,12 @@ class _WalkInWidgetState extends State<WalkInWidget> {
                                                         .labelMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .subHeadingColor,
                                                           fontSize: 14.0,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FontWeight.normal,
                                                         ),
                                                   ),
                                                 ),
@@ -263,7 +265,7 @@ class _WalkInWidgetState extends State<WalkInWidget> {
                                                       .fromSTEB(
                                                           1.0, 5.0, 1.0, 0.0),
                                                   child: Text(
-                                                    '/',
+                                                    '-',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium,
@@ -285,7 +287,7 @@ class _WalkInWidgetState extends State<WalkInWidget> {
                                                           fontFamily: 'Poppins',
                                                           fontSize: 14.0,
                                                           fontWeight:
-                                                              FontWeight.w500,
+                                                              FontWeight.w300,
                                                         ),
                                                   ),
                                                 ),
@@ -295,107 +297,86 @@ class _WalkInWidgetState extends State<WalkInWidget> {
                                         ),
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
                                           children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 5.0, 0.0),
-                                                  child: FlutterFlowIconButton(
-                                                    borderRadius: 20.0,
-                                                    borderWidth: 1.0,
-                                                    buttonSize: 40.0,
-                                                    icon: Icon(
-                                                      Icons.info_outline,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      size: 28.0,
-                                                    ),
-                                                    onPressed: () async {
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        enableDrag: false,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return GestureDetector(
-                                                            onTap: () => FocusScope
-                                                                    .of(context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  VisitProfileDetailsWidget(
-                                                                walkinDetail:
-                                                                    prospectsItem,
-                                                              ),
-                                                            ),
-                                                          );
-                                                        },
-                                                      ).then((value) =>
-                                                          setState(() {}));
-                                                    },
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 0.0, 0.0, 5.0),
-                                                  child: FlutterFlowIconButton(
-                                                    borderColor:
-                                                        Colors.transparent,
-                                                    borderRadius: 20.0,
-                                                    borderWidth: 1.0,
-                                                    buttonSize: 40.0,
-                                                    icon: FaIcon(
-                                                      FontAwesomeIcons
-                                                          .alignJustify,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      size: 28.0,
-                                                    ),
-                                                    onPressed: () async {
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        enableDrag: false,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return GestureDetector(
-                                                            onTap: () => FocusScope
-                                                                    .of(context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  AddRemarkWidget(),
-                                                            ),
-                                                          );
-                                                        },
-                                                      ).then((value) =>
-                                                          setState(() {}));
-                                                    },
-                                                  ),
-                                                ),
-                                              ],
+                                            FlutterFlowIconButton(
+                                              borderRadius: 20.0,
+                                              borderWidth: 1.0,
+                                              buttonSize: 40.0,
+                                              icon: Icon(
+                                                Icons.info_outline,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                size: 18.0,
+                                              ),
+                                              onPressed: () async {
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return GestureDetector(
+                                                      onTap: () => FocusScope
+                                                              .of(context)
+                                                          .requestFocus(_model
+                                                              .unfocusNode),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            VisitProfileDetailsWidget(
+                                                          walkinDetail:
+                                                              prospectsItem,
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then(
+                                                    (value) => setState(() {}));
+                                              },
+                                            ),
+                                            FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 20.0,
+                                              borderWidth: 1.0,
+                                              buttonSize: 40.0,
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.alignJustify,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                size: 18.0,
+                                              ),
+                                              onPressed: () async {
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return GestureDetector(
+                                                      onTap: () => FocusScope
+                                                              .of(context)
+                                                          .requestFocus(_model
+                                                              .unfocusNode),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            AddRemarkWidget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then(
+                                                    (value) => setState(() {}));
+                                              },
                                             ),
                                           ],
                                         ),
@@ -404,13 +385,13 @@ class _WalkInWidgetState extends State<WalkInWidget> {
                                   ),
                                 ],
                               ),
-                            ),
-                          );
-                        },
-                      );
-                    },
-                  ),
-                ],
+                            );
+                          },
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

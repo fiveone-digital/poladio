@@ -10,6 +10,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
@@ -815,11 +816,13 @@ class _EnterNewBookingWidgetState extends State<EnterNewBookingWidget>
                                                                     }
                                                                   }
 
-                                                                  setState(() {
-                                                                    _model.addToDocs(
-                                                                        _model
-                                                                            .uploadedLocalFile1);
-                                                                  });
+                                                                  await actions
+                                                                      .updateOwnerItemDoc(
+                                                                    ownerIndex,
+                                                                    'pan_image',
+                                                                    _model
+                                                                        .uploadedLocalFile1,
+                                                                  );
                                                                 },
                                                                 child: Icon(
                                                                   Icons
@@ -942,6 +945,14 @@ class _EnterNewBookingWidgetState extends State<EnterNewBookingWidget>
                                                                         return;
                                                                       }
                                                                     }
+
+                                                                    await actions
+                                                                        .updateOwnerItemDoc(
+                                                                      ownerIndex,
+                                                                      'aadhar_image',
+                                                                      _model
+                                                                          .uploadedLocalFile2,
+                                                                    );
                                                                   },
                                                                   child: Icon(
                                                                     Icons
@@ -1065,6 +1076,14 @@ class _EnterNewBookingWidgetState extends State<EnterNewBookingWidget>
                                                                         return;
                                                                       }
                                                                     }
+
+                                                                    await actions
+                                                                        .updateOwnerItemDoc(
+                                                                      ownerIndex,
+                                                                      'photo_image',
+                                                                      _model
+                                                                          .uploadedLocalFile3,
+                                                                    );
                                                                   },
                                                                   child: Icon(
                                                                     Icons
