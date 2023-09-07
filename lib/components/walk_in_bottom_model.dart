@@ -1,31 +1,29 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/side_menu/side_menu_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class BookingListModel extends FlutterFlowModel {
-  ///  State fields for stateful widgets in this page.
+class WalkInBottomModel extends FlutterFlowModel {
+  ///  Local state fields for this component.
 
-  final unfocusNode = FocusNode();
-  // Model for sideMenu component.
-  late SideMenuModel sideMenuModel;
+  int? collapsible = 0;
+
+  ///  State fields for stateful widgets in this component.
+
+  // Stores action output result for [Backend Call - API (View WalkIn)] action in WalkInBottom widget.
+  ApiCallResponse? viewWalkinApi;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {
-    sideMenuModel = createModel(context, () => SideMenuModel());
-  }
+  void initState(BuildContext context) {}
 
-  void dispose() {
-    unfocusNode.dispose();
-    sideMenuModel.dispose();
-  }
+  void dispose() {}
 
   /// Action blocks are added here.
 

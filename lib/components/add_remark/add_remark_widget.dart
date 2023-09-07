@@ -58,7 +58,7 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
     super.initState();
     _model = createModel(context, () => AddRemarkModel());
 
-    _model.recNoController ??= TextEditingController(text: '001/A-1001');
+    _model.recNoController ??= TextEditingController();
     _model.recDateController ??=
         TextEditingController(text: dateTimeFormat('d/M/y', _model.datePicked));
     setupAnimations(
@@ -517,6 +517,9 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 16.0, 0.0),
                                         child: RichText(
+                                          textScaleFactor:
+                                              MediaQuery.of(context)
+                                                  .textScaleFactor,
                                           text: TextSpan(
                                             children: [
                                               TextSpan(
@@ -574,6 +577,9 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 16.0, 7.0),
                                         child: RichText(
+                                          textScaleFactor:
+                                              MediaQuery.of(context)
+                                                  .textScaleFactor,
                                           text: TextSpan(
                                             children: [
                                               TextSpan(

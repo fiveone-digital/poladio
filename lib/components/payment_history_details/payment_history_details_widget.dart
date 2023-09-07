@@ -202,7 +202,7 @@ class _PaymentHistoryDetailsWidgetState
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                     child: Text(
                       'Below are your payment details',
                       style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -230,7 +230,7 @@ class _PaymentHistoryDetailsWidgetState
                           Expanded(
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 16.0, 24.0, 0.0),
+                                  24.0, 10.0, 24.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -306,7 +306,7 @@ class _PaymentHistoryDetailsWidgetState
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 10.0, 20.0, 24.0),
+                                              20.0, 10.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -412,7 +412,7 @@ class _PaymentHistoryDetailsWidgetState
                                         fillColor: Colors.white,
                                         contentPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                20.0, 10.0, 20.0, 24.0),
+                                                20.0, 10.0, 20.0, 18.0),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -511,7 +511,7 @@ class _PaymentHistoryDetailsWidgetState
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 10.0, 20.0, 24.0),
+                                              20.0, 10.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -615,7 +615,7 @@ class _PaymentHistoryDetailsWidgetState
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 10.0, 20.0, 24.0),
+                                              20.0, 10.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -714,7 +714,7 @@ class _PaymentHistoryDetailsWidgetState
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 10.0, 20.0, 24.0),
+                                              20.0, 10.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -820,7 +820,7 @@ class _PaymentHistoryDetailsWidgetState
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 10.0, 20.0, 24.0),
+                                              20.0, 10.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -925,7 +925,7 @@ class _PaymentHistoryDetailsWidgetState
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 10.0, 20.0, 24.0),
+                                              20.0, 10.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1030,7 +1030,7 @@ class _PaymentHistoryDetailsWidgetState
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 10.0, 20.0, 24.0),
+                                              20.0, 10.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1128,7 +1128,7 @@ class _PaymentHistoryDetailsWidgetState
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 10.0, 20.0, 24.0),
+                                              20.0, 10.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1155,27 +1155,26 @@ class _PaymentHistoryDetailsWidgetState
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 16.0, 24.0, 16.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'GST',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: FlutterFlowTheme.of(context)
-                                              .labelColor,
-                                          fontSize: 12.0,
-                                        ),
-                                  ),
-                                  Container(
-                                    width: 350.0,
-                                    child: TextFormField(
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 16.0, 24.0, 16.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'GST',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .labelColor,
+                                            fontSize: 12.0,
+                                          ),
+                                    ),
+                                    TextFormField(
                                       controller: _model.gstController,
                                       autofocus: true,
                                       readOnly: true,
@@ -1228,7 +1227,7 @@ class _PaymentHistoryDetailsWidgetState
                                         fillColor: Colors.white,
                                         contentPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                20.0, 10.0, 20.0, 24.0),
+                                                20.0, 10.0, 20.0, 18.0),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
@@ -1237,8 +1236,8 @@ class _PaymentHistoryDetailsWidgetState
                                       validator: _model.gstControllerValidator
                                           .asValidator(context),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ],

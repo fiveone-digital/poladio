@@ -12,7 +12,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class EnterWalkinModel extends FlutterFlowModel {
+class EditWalkinModel extends FlutterFlowModel {
   ///  Local state fields for this page.
 
   int currentTab = 0;
@@ -21,10 +21,8 @@ class EnterWalkinModel extends FlutterFlowModel {
 
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
-  // Stores action output result for [Backend Call - API (Units By Projects)] action in EnterWalkin widget.
-  ApiCallResponse? apiResultsxm;
-  // Stores action output result for [Backend Call - API (Schemes By Projects)] action in EnterWalkin widget.
-  ApiCallResponse? apiResult3nf;
+  // Stores action output result for [Backend Call - API (View WalkIn)] action in EditWalkin widget.
+  ApiCallResponse? apiResult83a;
   // State field(s) for BookingName widget.
   TextEditingController? bookingNameController;
   String? Function(BuildContext, String?)? bookingNameControllerValidator;
@@ -105,8 +103,8 @@ class EnterWalkinModel extends FlutterFlowModel {
   }
 
   // State field(s) for Enquiry widget.
-  String? enquiryValue;
-  FormFieldController<String>? enquiryValueController;
+  int? enquiryValue;
+  FormFieldController<int>? enquiryValueController;
   // State field(s) for SrNo widget.
   TextEditingController? srNoController;
   String? Function(BuildContext, String?)? srNoControllerValidator;
@@ -150,7 +148,7 @@ class EnterWalkinModel extends FlutterFlowModel {
   // State field(s) for ChannelAddress widget.
   TextEditingController? channelAddressController;
   String? Function(BuildContext, String?)? channelAddressControllerValidator;
-  // Stores action output result for [Backend Call - API (Create WalkIn)] action in Button widget.
+  // Stores action output result for [Backend Call - API (Update WalkIn)] action in Button widget.
   ApiCallResponse? bookingCreate;
 
   /// Initialization and disposal methods.

@@ -256,7 +256,7 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.00, 0.00),
                   child: Container(
                     width: () {
                       if (_model.currentTab == 0) {
@@ -316,7 +316,7 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
                                     Expanded(
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.00, 0.00),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -443,8 +443,8 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0.00,
+                                                                        0.00),
                                                                 child: Text(
                                                                   getJsonField(
                                                                             ownerItem,
@@ -529,8 +529,8 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
                                                                   child: Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            1.0,
-                                                                            0.0),
+                                                                            1.00,
+                                                                            0.00),
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -564,8 +564,8 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
                                                                   child: Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            1.0,
-                                                                            0.0),
+                                                                            1.00,
+                                                                            0.00),
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -1158,7 +1158,7 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
                                   children: [
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(0.0, 0.05),
+                                          AlignmentDirectional(0.00, 0.05),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           setState(() {
@@ -1265,7 +1265,8 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
                                 children: [
                                   Expanded(
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 16.0, 0.0, 16.0),
@@ -1961,7 +1962,7 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.05),
+                                  alignment: AlignmentDirectional(0.00, 0.05),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       setState(() {
@@ -2010,7 +2011,7 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.05),
+                                  alignment: AlignmentDirectional(0.00, 0.05),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       setState(() {
@@ -2112,7 +2113,7 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.00, 0.00),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -3295,7 +3296,7 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
                                   children: [
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(0.0, 0.05),
+                                          AlignmentDirectional(0.00, 0.05),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           setState(() {
@@ -3349,7 +3350,7 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(0.0, 0.05),
+                                          AlignmentDirectional(0.00, 0.05),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           setState(() {
@@ -3412,7 +3413,7 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
                                     Expanded(
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.00, 0.00),
                                         child: Text(
                                           'You are almost there!',
                                           style: FlutterFlowTheme.of(context)
@@ -3483,7 +3484,8 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
                                 children: [
                                   Expanded(
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 16.0, 0.0, 16.0),
@@ -4030,7 +4032,7 @@ class _EnterPersonalWalkinWidgetState extends State<EnterPersonalWalkinWidget>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.05),
+                                  alignment: AlignmentDirectional(0.00, 0.05),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       setState(() {

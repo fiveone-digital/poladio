@@ -672,7 +672,7 @@ class _ChannelPartnerDetailsWidgetState
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.05),
+                          alignment: AlignmentDirectional(0.00, 0.05),
                           child: FFButtonWidget(
                             onPressed: () async {
                               Navigator.pop(context);
@@ -717,7 +717,7 @@ class _ChannelPartnerDetailsWidgetState
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.05),
+                          alignment: AlignmentDirectional(0.00, 0.05),
                           child: FFButtonWidget(
                             onPressed: () async {
                               Navigator.pop(context);

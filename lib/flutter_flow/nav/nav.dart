@@ -37,12 +37,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => SplashScreenWidget(),
+      errorBuilder: (context, state) => appStateNotifier.showSplashImage
+          ? Builder(
+              builder: (context) => Container(
+                color: Colors.transparent,
+                child: Image.asset(
+                  'assets/images/Your_paragraph_text.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            )
+          : SplashScreenWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => SplashScreenWidget(),
+          builder: (context, _) => appStateNotifier.showSplashImage
+              ? Builder(
+                  builder: (context) => Container(
+                    color: Colors.transparent,
+                    child: Image.asset(
+                      'assets/images/Your_paragraph_text.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                )
+              : SplashScreenWidget(),
         ),
         FFRoute(
           name: 'UserList',
@@ -78,13 +98,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Schemes',
           path: '/schemes',
           builder: (context, params) => SchemesWidget(),
-        ),
-        FFRoute(
-          name: 'BookingDetails',
-          path: '/bookingDetails',
-          builder: (context, params) => BookingDetailsWidget(
-            bookingDetail: params.getParam('bookingDetail', ParamType.JSON),
-          ),
         ),
         FFRoute(
           name: 'SplashScreen',
@@ -136,6 +149,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'EditBook',
           path: '/editBook',
           builder: (context, params) => EditBookWidget(),
+        ),
+        FFRoute(
+          name: 'EditWalkin',
+          path: '/editWalkin',
+          builder: (context, params) => EditWalkinWidget(
+            walkinDetail: params.getParam('walkinDetail', ParamType.JSON),
+            id: params.getParam('id', ParamType.int),
+          ),
+        ),
+        FFRoute(
+          name: 'Settings',
+          path: '/settings',
+          builder: (context, params) => SettingsWidget(),
+        ),
+        FFRoute(
+          name: 'FollowUps',
+          path: '/followUps',
+          builder: (context, params) => FollowUpsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

@@ -1,4 +1,6 @@
 import '/components/booking_det/booking_det_widget.dart';
+import '/components/booking_payment/booking_payment_widget.dart';
+import '/components/demand_history/demand_history_widget.dart';
 import '/components/owner_doc_details/owner_doc_details_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -280,7 +282,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
             ),
             actions: [
               Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.00, 0.00),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                   child: InkWell(
@@ -575,8 +577,26 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                 ),
                               ),
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    enableDrag: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return GestureDetector(
+                                        onTap: () => FocusScope.of(context)
+                                            .requestFocus(_model.unfocusNode),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: DemandHistoryWidget(
+                                            demandHist: widget.bookingDetail!,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => setState(() {}));
                                 },
                                 text: 'View latest demand',
                                 options: FFButtonOptions(
@@ -632,7 +652,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'AGREEMENT ON${getJsonField(
+                                'AGREEMENT ON ${getJsonField(
                                   widget.bookingDetail,
                                   r'''$.booking_payment.receipt_date''',
                                 ).toString()}',
@@ -744,7 +764,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                       ],
                                       shape: BoxShape.circle,
                                     ),
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: Text(
                                       '2',
                                       style: FlutterFlowTheme.of(context)
@@ -778,6 +798,95 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                     size: 24.0,
                                   ),
                                 ],
+                              ),
+                              Divider(
+                                height: 24.0,
+                                thickness: 2.0,
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    enableDrag: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return GestureDetector(
+                                        onTap: () => FocusScope.of(context)
+                                            .requestFocus(_model.unfocusNode),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: BookingPaymentWidget(
+                                            paymentDetail:
+                                                widget.bookingDetail!,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => setState(() {}));
+                                },
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Container(
+                                      width: 40.0,
+                                      height: 40.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 4.0,
+                                            color: Color(0x2B202529),
+                                            offset: Offset(0.0, 2.0),
+                                          )
+                                        ],
+                                        shape: BoxShape.circle,
+                                      ),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
+                                      child: Text(
+                                        '2',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                            ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'PAYMENT HISTORY',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.keyboard_arrow_right_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 24.0,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
@@ -822,7 +931,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'BOOKED ON${getJsonField(
+                                        'BOOKED ON ${getJsonField(
                                           widget.bookingDetail,
                                           r'''$.booking_payment.date''',
                                         ).toString()}',
@@ -954,7 +1063,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                   ],
                 ),
                 Align(
-                  alignment: AlignmentDirectional(1.0, 1.0),
+                  alignment: AlignmentDirectional(1.00, 1.00),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 24.0, 0.0),

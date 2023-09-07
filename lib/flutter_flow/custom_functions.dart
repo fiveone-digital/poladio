@@ -86,6 +86,17 @@ List<String> getDropdownItemsWithAll(List<dynamic>? data) {
   return dropdownList;
 }
 
+dynamic getOwnerEmptyDocJson() {
+  FFUploadedFile pan = new FFUploadedFile();
+  FFUploadedFile aadharImage = new FFUploadedFile();
+  FFUploadedFile photoImage = new FFUploadedFile();
+  return {
+    "pan_image": pan,
+    "aadhar_image": aadharImage,
+    "photo_image": photoImage
+  };
+}
+
 String? humanDateFormat(String? date) {
   final DateFormat formatter = DateFormat("yMMMd");
   return formatter.format(DateTime.parse(date!));

@@ -1,4 +1,4 @@
-package com.mycompany.crm
+package com.fiveone.poladio
 
 import io.flutter.embedding.android.FlutterActivity
 

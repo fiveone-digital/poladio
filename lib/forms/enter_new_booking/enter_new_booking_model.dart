@@ -38,6 +38,7 @@ class EnterNewBookingModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  final formKey = GlobalKey<FormState>();
   // Stores action output result for [Backend Call - API (Units By Projects)] action in EnterNewBooking widget.
   ApiCallResponse? apiResultsxm;
   // Stores action output result for [Backend Call - API (Schemes By Projects)] action in EnterNewBooking widget.

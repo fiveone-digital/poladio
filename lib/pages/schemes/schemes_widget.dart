@@ -1,8 +1,8 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/side_menu/side_menu_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -44,51 +44,47 @@ class _SchemesWidgetState extends State<SchemesWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        drawer: Drawer(
-          elevation: 16.0,
-          child: wrapWithModel(
-            model: _model.sideMenuModel,
-            updateCallback: () => setState(() {}),
-            child: SideMenuWidget(),
-          ),
-        ),
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            icon: Icon(
-              Icons.menu,
-              color: Colors.white,
-              size: 30.0,
-            ),
-            onPressed: () async {
-              scaffoldKey.currentState!.openDrawer();
-            },
-          ),
-          title: Text(
-            'Payment Schemes',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Poppins',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                ),
-          ),
-          actions: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
-              child: Icon(
-                Icons.add_outlined,
-                color: FlutterFlowTheme.of(context).secondaryBackground,
-                size: 24.0,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(80.0),
+          child: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            automaticallyImplyLeading: false,
+            leading: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
+              icon: Icon(
+                Icons.keyboard_backspace,
+                color: FlutterFlowTheme.of(context).primaryText,
+                size: 30.0,
               ),
+              onPressed: () async {
+                context.safePop();
+              },
             ),
-          ],
-          centerTitle: true,
-          elevation: 2.0,
+            title: Text(
+              'Payment Schemes',
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    fontFamily: 'Poppins',
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    fontSize: 22.0,
+                  ),
+            ),
+            actions: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                child: Icon(
+                  Icons.add_outlined,
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  size: 24.0,
+                ),
+              ),
+            ],
+            centerTitle: true,
+            toolbarHeight: 80.0,
+            elevation: 2.0,
+          ),
         ),
         body: SafeArea(
           top: true,

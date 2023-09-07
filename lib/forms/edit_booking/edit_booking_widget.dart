@@ -4204,7 +4204,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget>
                       ),
                       if (_model.currentTab != 0)
                         Align(
-                          alignment: AlignmentDirectional(1.0, 0.0),
+                          alignment: AlignmentDirectional(1.00, 0.00),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 12.0, 24.0, 24.0),
@@ -4214,7 +4214,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget>
                               children: [
                                 if (_model.currentTab > 0)
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.05),
+                                    alignment: AlignmentDirectional(0.00, 0.05),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         setState(() {
@@ -4263,7 +4263,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget>
                                 if ((_model.currentTab > 0) &&
                                     (_model.currentTab < 2))
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.05),
+                                    alignment: AlignmentDirectional(0.00, 0.05),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         setState(() {
@@ -4307,7 +4307,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget>
                                   ),
                                 if (_model.currentTab == 2)
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.05),
+                                    alignment: AlignmentDirectional(0.00, 0.05),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         setState(() {});
@@ -4353,7 +4353,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget>
                           ),
                         ),
                       Align(
-                        alignment: AlignmentDirectional(1.0, 0.0),
+                        alignment: AlignmentDirectional(1.00, 0.00),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 12.0, 24.0, 24.0),
@@ -4363,7 +4363,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget>
                             children: [
                               if (_model.currentTab == 0)
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.05),
+                                  alignment: AlignmentDirectional(0.00, 0.05),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       setState(() {

@@ -211,7 +211,7 @@ class _BookingDetWidgetState extends State<BookingDetWidget>
                           Expanded(
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 16.0, 0.0, 0.0),
+                                  24.0, 10.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -308,7 +308,6 @@ class _BookingDetWidgetState extends State<BookingDetWidget>
                                               fontSize: 14.0,
                                               fontWeight: FontWeight.w500,
                                             ),
-                                        maxLines: null,
                                         cursorColor: Color(0xFF6F61EF),
                                         validator: _model
                                             .amountControllerValidator
@@ -323,7 +322,7 @@ class _BookingDetWidgetState extends State<BookingDetWidget>
                           Expanded(
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 16.0, 24.0, 0.0),
+                                  5.0, 10.0, 24.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -409,7 +408,6 @@ class _BookingDetWidgetState extends State<BookingDetWidget>
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    maxLines: null,
                                     cursorColor: Color(0xFF6F61EF),
                                     validator: _model.dateControllerValidator
                                         .asValidator(context),
@@ -724,7 +722,6 @@ class _BookingDetWidgetState extends State<BookingDetWidget>
                                             fontSize: 14.0,
                                             fontWeight: FontWeight.w500,
                                           ),
-                                      maxLines: null,
                                       cursorColor: Color(0xFF6F61EF),
                                       validator: _model.modeControllerValidator
                                           .asValidator(context),
@@ -823,7 +820,6 @@ class _BookingDetWidgetState extends State<BookingDetWidget>
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    maxLines: null,
                                     cursorColor: Color(0xFF6F61EF),
                                     validator: _model.refNoControllerValidator
                                         .asValidator(context),
@@ -836,7 +832,7 @@ class _BookingDetWidgetState extends State<BookingDetWidget>
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,

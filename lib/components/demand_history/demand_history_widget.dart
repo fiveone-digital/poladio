@@ -213,7 +213,7 @@ class _DemandHistoryWidgetState extends State<DemandHistoryWidget>
                           Expanded(
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 16.0, 24.0, 0.0),
+                                  24.0, 10.0, 24.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -403,7 +403,6 @@ class _DemandHistoryWidgetState extends State<DemandHistoryWidget>
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    maxLines: null,
                                     cursorColor: Color(0xFF6F61EF),
                                     validator: _model
                                         .demandAmtControllerValidator
@@ -502,7 +501,6 @@ class _DemandHistoryWidgetState extends State<DemandHistoryWidget>
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    maxLines: null,
                                     cursorColor: Color(0xFF6F61EF),
                                     validator: _model
                                         .demandRecControllerValidator
@@ -706,7 +704,6 @@ class _DemandHistoryWidgetState extends State<DemandHistoryWidget>
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    maxLines: null,
                                     cursorColor: Color(0xFF6F61EF),
                                     validator: _model
                                         .interestControllerValidator
@@ -812,7 +809,6 @@ class _DemandHistoryWidgetState extends State<DemandHistoryWidget>
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    maxLines: null,
                                     cursorColor: Color(0xFF6F61EF),
                                     validator: _model.gstAmtControllerValidator
                                         .asValidator(context),
@@ -910,7 +906,6 @@ class _DemandHistoryWidgetState extends State<DemandHistoryWidget>
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    maxLines: null,
                                     cursorColor: Color(0xFF6F61EF),
                                     validator: _model.gstrRecControllerValidator
                                         .asValidator(context),
@@ -923,7 +918,7 @@ class _DemandHistoryWidgetState extends State<DemandHistoryWidget>
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -1018,7 +1013,6 @@ class _DemandHistoryWidgetState extends State<DemandHistoryWidget>
                                             fontSize: 14.0,
                                             fontWeight: FontWeight.w500,
                                           ),
-                                      maxLines: null,
                                       cursorColor: Color(0xFF6F61EF),
                                       validator: _model
                                           .netGstControllerValidator

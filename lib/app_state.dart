@@ -6,13 +6,17 @@ import 'flutter_flow/flutter_flow_util.dart';
 import 'dart:convert';
 
 class FFAppState extends ChangeNotifier {
-  static final FFAppState _instance = FFAppState._internal();
+  static FFAppState _instance = FFAppState._internal();
 
   factory FFAppState() {
     return _instance;
   }
 
   FFAppState._internal();
+
+  static void reset() {
+    _instance = FFAppState._internal();
+  }
 
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
@@ -124,6 +128,10 @@ class FFAppState extends ChangeNotifier {
     _ownerList[_index] = updateFn(_ownerList[_index]);
   }
 
+  void insertAtIndexInOwnerList(int _index, dynamic _value) {
+    _ownerList.insert(_index, _value);
+  }
+
   List<dynamic> _projectList = [];
   List<dynamic> get projectList => _projectList;
   set projectList(List<dynamic> _value) {
@@ -155,6 +163,12 @@ class FFAppState extends ChangeNotifier {
     dynamic Function(dynamic) updateFn,
   ) {
     _projectList[_index] = updateFn(_projectList[_index]);
+    prefs.setStringList(
+        'ff_projectList', _projectList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void insertAtIndexInProjectList(int _index, dynamic _value) {
+    _projectList.insert(_index, _value);
     prefs.setStringList(
         'ff_projectList', _projectList.map((x) => jsonEncode(x)).toList());
   }
@@ -201,6 +215,12 @@ class FFAppState extends ChangeNotifier {
         _UnitMasterList.map((x) => jsonEncode(x)).toList());
   }
 
+  void insertAtIndexInUnitMasterList(int _index, dynamic _value) {
+    _UnitMasterList.insert(_index, _value);
+    prefs.setStringList('ff_UnitMasterList',
+        _UnitMasterList.map((x) => jsonEncode(x)).toList());
+  }
+
   List<dynamic> _SchemeMasterList = [];
   List<dynamic> get SchemeMasterList => _SchemeMasterList;
   set SchemeMasterList(List<dynamic> _value) {
@@ -232,6 +252,12 @@ class FFAppState extends ChangeNotifier {
     dynamic Function(dynamic) updateFn,
   ) {
     _SchemeMasterList[_index] = updateFn(_SchemeMasterList[_index]);
+    prefs.setStringList('ff_SchemeMasterList',
+        _SchemeMasterList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void insertAtIndexInSchemeMasterList(int _index, dynamic _value) {
+    _SchemeMasterList.insert(_index, _value);
     prefs.setStringList('ff_SchemeMasterList',
         _SchemeMasterList.map((x) => jsonEncode(x)).toList());
   }

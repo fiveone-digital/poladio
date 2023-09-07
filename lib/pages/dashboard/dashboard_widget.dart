@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -237,14 +238,14 @@ class _DashboardWidgetState extends State<DashboardWidget>
                   children: [
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
-                          16.0, 12.0, 16.0, 12.0),
+                          16.0, 12.0, 16.0, 24.0),
                       child: GridView(
                         padding: EdgeInsets.zero,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           crossAxisSpacing: 10.0,
                           mainAxisSpacing: 10.0,
-                          childAspectRatio: 1.0,
+                          childAspectRatio: 1.3,
                         ),
                         primary: false,
                         shrinkWrap: true,
@@ -252,26 +253,28 @@ class _DashboardWidgetState extends State<DashboardWidget>
                         children: [
                           Container(
                             width: MediaQuery.sizeOf(context).width * 0.4,
-                            height: 160.0,
+                            height: 150.0,
                             decoration: BoxDecoration(
-                              color: Color(0xFFF9FD05),
+                              color: FlutterFlowTheme.of(context).primaryText,
                               borderRadius: BorderRadius.circular(24.0),
                             ),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 12.0, 12.0, 12.0),
+                                  24.0, 10.0, 10.0, 10.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   FaIcon(
                                     FontAwesomeIcons.dollarSign,
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    size: 32.0,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    size: 30.0,
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 12.0, 0.0, 12.0),
+                                        0.0, 10.0, 0.0, 6.0),
                                     child: Text(
                                       PoladioAPIsGroup.dashboardCall
                                           .outstanding(
@@ -284,8 +287,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            fontSize: 22.0,
+                                                .secondaryBackground,
+                                            fontSize: 18.0,
                                           ),
                                     ),
                                   ),
@@ -297,7 +300,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                              .secondaryBackground,
                                           fontSize: 14.0,
                                         ),
                                   ),
@@ -308,26 +311,28 @@ class _DashboardWidgetState extends State<DashboardWidget>
                               animationsMap['containerOnPageLoadAnimation1']!),
                           Container(
                             width: MediaQuery.sizeOf(context).width * 0.4,
-                            height: 160.0,
+                            height: 150.0,
                             decoration: BoxDecoration(
-                              color: Color(0xFF48FF09),
+                              color: FlutterFlowTheme.of(context).primaryText,
                               borderRadius: BorderRadius.circular(24.0),
                             ),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 12.0, 12.0, 12.0),
+                                  24.0, 10.0, 10.0, 10.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Icon(
                                     Icons.trending_up,
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    size: 44.0,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    size: 30.0,
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 12.0, 0.0, 12.0),
+                                        0.0, 10.0, 0.0, 6.0),
                                     child: Text(
                                       PoladioAPIsGroup.dashboardCall
                                           .received(
@@ -340,16 +345,21 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            fontSize: 22.0,
+                                                .secondaryBackground,
+                                            fontSize: 18.0,
                                           ),
                                     ),
                                   ),
                                   Text(
                                     'Total Recieved',
                                     textAlign: TextAlign.center,
-                                    style:
-                                        FlutterFlowTheme.of(context).titleSmall,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
                                   ),
                                 ],
                               ),
@@ -358,27 +368,28 @@ class _DashboardWidgetState extends State<DashboardWidget>
                               animationsMap['containerOnPageLoadAnimation2']!),
                           Container(
                             width: MediaQuery.sizeOf(context).width * 0.4,
-                            height: 160.0,
+                            height: 150.0,
                             decoration: BoxDecoration(
-                              color: Color(0xFF2751CD),
+                              color: FlutterFlowTheme.of(context).primaryText,
                               borderRadius: BorderRadius.circular(24.0),
                             ),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 12.0, 12.0, 12.0),
+                                  24.0, 10.0, 10.0, 10.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   FaIcon(
                                     FontAwesomeIcons.globe,
                                     color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 32.0,
+                                        .secondaryBackground,
+                                    size: 30.0,
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 12.0, 0.0, 12.0),
+                                        0.0, 20.0, 0.0, 6.0),
                                     child: Text(
                                       PoladioAPIsGroup.dashboardCall
                                           .thisMonth(
@@ -392,7 +403,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
-                                            fontSize: 22.0,
+                                            fontSize: 18.0,
                                           ),
                                     ),
                                   ),
@@ -414,27 +425,28 @@ class _DashboardWidgetState extends State<DashboardWidget>
                               animationsMap['containerOnPageLoadAnimation3']!),
                           Container(
                             width: MediaQuery.sizeOf(context).width * 0.4,
-                            height: 160.0,
+                            height: 150.0,
                             decoration: BoxDecoration(
-                              color: Color(0xFF00E8FF),
+                              color: FlutterFlowTheme.of(context).primaryText,
                               borderRadius: BorderRadius.circular(24.0),
                             ),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 12.0, 12.0, 12.0),
+                                  24.0, 10.0, 10.0, 10.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Icon(
                                     Icons.web,
                                     color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 32.0,
+                                        .secondaryBackground,
+                                    size: 30.0,
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 12.0, 0.0, 12.0),
+                                        0.0, 20.0, 0.0, 6.0),
                                     child: Text(
                                       PoladioAPIsGroup.dashboardCall
                                           .thisWeek(
@@ -446,7 +458,9 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           .displaySmall
                                           .override(
                                             fontFamily: 'Poppins',
-                                            fontSize: 22.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            fontSize: 18.0,
                                           ),
                                     ),
                                   ),
@@ -458,7 +472,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                              .secondaryBackground,
                                         ),
                                   ),
                                 ],
@@ -475,7 +489,10 @@ class _DashboardWidgetState extends State<DashboardWidget>
                       child: Text(
                         'Upcoming Followups/Recent Prospects',
                         textAlign: TextAlign.start,
-                        style: FlutterFlowTheme.of(context).labelLarge,
+                        style: FlutterFlowTheme.of(context).labelLarge.override(
+                              fontFamily: 'Poppins',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
                       ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation']!),
                     ),
@@ -492,7 +509,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       .toList()
                                       ?.toList() ??
                                   [])
-                              .take(4)
+                              .take(5)
                               .toList();
                           return ListView.builder(
                             padding: EdgeInsets.zero,
@@ -553,8 +570,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                         .bodyLarge
                                                         .override(
                                                           fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FontWeight.normal,
                                                         ),
                                               ),
                                               Padding(
@@ -576,6 +596,10 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                       .labelMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelColor,
                                                         fontSize: 14.0,
                                                         fontWeight:
                                                             FontWeight.normal,
@@ -610,8 +634,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                         .bodyLarge
                                                         .override(
                                                           fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FontWeight.normal,
                                                         ),
                                               ),
                                               Padding(
@@ -633,6 +660,10 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                                       .labelMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelColor,
                                                         fontSize: 14.0,
                                                       ),
                                                 ),

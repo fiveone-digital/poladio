@@ -1,5 +1,5 @@
+import '/backend/api_requests/api_calls.dart';
 import '/components/channel_partner_details/channel_partner_details_widget.dart';
-import '/components/visit_profile_edit/visit_profile_edit_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -18,9 +18,11 @@ class VisitProfileDetailsWidget extends StatefulWidget {
   const VisitProfileDetailsWidget({
     Key? key,
     required this.walkinDetail,
+    required this.id,
   }) : super(key: key);
 
   final dynamic walkinDetail;
+  final int? id;
 
   @override
   _VisitProfileDetailsWidgetState createState() =>
@@ -65,6 +67,32 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
     super.initState();
     _model = createModel(context, () => VisitProfileDetailsModel());
 
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.apiResultzzg = await PoladioAPIsGroup.viewWalkInCall.call(
+        token: FFAppState().token,
+        projectId: getJsonField(
+          FFAppState().currentProject,
+          r'''$.id''',
+        ),
+        id: widget.id,
+      );
+      if (!(_model.apiResultzzg?.succeeded ?? true)) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'error',
+              style: TextStyle(
+                color: FlutterFlowTheme.of(context).primaryText,
+              ),
+            ),
+            duration: Duration(milliseconds: 4000),
+            backgroundColor: FlutterFlowTheme.of(context).secondary,
+          ),
+        );
+      }
+    });
+
     _model.yourNameController1 ??= TextEditingController(
         text: getJsonField(
       widget.walkinDetail,
@@ -88,12 +116,12 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
     _model.yourNameController5 ??= TextEditingController(
         text: getJsonField(
       widget.walkinDetail,
-      r'''$.mobile''',
+      r'''$.office_mobile''',
     ).toString().toString());
     _model.yourNameController6 ??= TextEditingController(
         text: getJsonField(
       widget.walkinDetail,
-      r'''$.email''',
+      r'''$.residential_mobile''',
     ).toString().toString());
     _model.yourNameController7 ??= TextEditingController(
         text: getJsonField(
@@ -237,20 +265,20 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                               ),
                               onPressed: () async {
                                 Navigator.pop(context);
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  enableDrag: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: VisitProfileEditWidget(
-                                        walkinDetail: widget.walkinDetail!,
-                                      ),
-                                    );
-                                  },
-                                ).then((value) => setState(() {}));
+
+                                context.pushNamed(
+                                  'EditWalkin',
+                                  queryParameters: {
+                                    'walkinDetail': serializeParam(
+                                      widget.walkinDetail,
+                                      ParamType.JSON,
+                                    ),
+                                    'id': serializeParam(
+                                      0,
+                                      ParamType.int,
+                                    ),
+                                  }.withoutNulls,
+                                );
                               },
                             ),
                           ),
@@ -260,7 +288,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                     child: Text(
                       'Below are the visit details',
                       style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -288,7 +316,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                           Expanded(
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 16.0, 5.0, 0.0),
+                                  24.0, 10.0, 5.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -364,7 +392,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 12.0, 20.0, 24.0),
+                                              20.0, 8.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -374,7 +402,6 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    maxLines: null,
                                     cursorColor: Color(0xFF6F61EF),
                                     validator: _model
                                         .yourNameController1Validator
@@ -387,7 +414,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                           Expanded(
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 16.0, 24.0, 0.0),
+                                  5.0, 10.0, 24.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -463,7 +490,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 12.0, 20.0, 24.0),
+                                              20.0, 8.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -567,7 +594,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 12.0, 20.0, 24.0),
+                                              20.0, 8.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -666,7 +693,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 12.0, 20.0, 24.0),
+                                              20.0, 8.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -770,7 +797,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 12.0, 20.0, 24.0),
+                                              20.0, 8.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -869,7 +896,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 12.0, 20.0, 24.0),
+                                              20.0, 8.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -879,7 +906,6 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    maxLines: null,
                                     cursorColor: Color(0xFF6F61EF),
                                     validator: _model
                                         .yourNameController6Validator
@@ -973,7 +999,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 12.0, 20.0, 24.0),
+                                              20.0, 8.0, 20.0, 24.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -983,7 +1009,6 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    maxLines: null,
                                     cursorColor: Color(0xFF6F61EF),
                                     validator: _model
                                         .yourNameController7Validator
@@ -1072,7 +1097,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 12.0, 20.0, 24.0),
+                                              20.0, 8.0, 20.0, 24.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1178,7 +1203,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 12.0, 20.0, 24.0),
+                                              20.0, 8.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1284,7 +1309,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 12.0, 20.0, 24.0),
+                                              20.0, 8.0, 20.0, 18.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1389,7 +1414,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 12.0, 20.0, 24.0),
+                                              20.0, 8.0, 20.0, 24.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1489,7 +1514,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 12.0, 20.0, 24.0),
+                                              20.0, 8.0, 20.0, 24.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1588,7 +1613,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                                       fillColor: Colors.white,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 12.0, 20.0, 24.0),
+                                              20.0, 8.0, 20.0, 24.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1620,7 +1645,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.05),
+                          alignment: AlignmentDirectional(0.00, 0.05),
                           child: FFButtonWidget(
                             onPressed: () async {
                               Navigator.pop(context);
@@ -1665,7 +1690,7 @@ class _VisitProfileDetailsWidgetState extends State<VisitProfileDetailsWidget>
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.05),
+                          alignment: AlignmentDirectional(0.00, 0.05),
                           child: FFButtonWidget(
                             onPressed: () async {
                               await showModalBottomSheet(

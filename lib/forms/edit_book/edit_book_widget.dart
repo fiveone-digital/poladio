@@ -232,7 +232,7 @@ class _EditBookWidgetState extends State<EditBookWidget>
               },
             ),
             title: Text(
-              'NEW WALKIN',
+              'EDIT BOOKING',
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Poppins',
@@ -255,7 +255,7 @@ class _EditBookWidgetState extends State<EditBookWidget>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.00, 0.00),
                   child: Container(
                     width: () {
                       if (_model.currentTab == 0) {
@@ -315,7 +315,7 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                     Expanded(
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.00, 0.00),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -442,8 +442,8 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0.00,
+                                                                        0.00),
                                                                 child: Text(
                                                                   getJsonField(
                                                                             ownerItem,
@@ -528,8 +528,8 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                                                   child: Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            1.0,
-                                                                            0.0),
+                                                                            1.00,
+                                                                            0.00),
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -563,8 +563,8 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                                                   child: Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            1.0,
-                                                                            0.0),
+                                                                            1.00,
+                                                                            0.00),
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -1157,7 +1157,7 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                   children: [
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(0.0, 0.05),
+                                          AlignmentDirectional(0.00, 0.05),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           setState(() {
@@ -1264,7 +1264,8 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                 children: [
                                   Expanded(
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 16.0, 0.0, 16.0),
@@ -1960,7 +1961,7 @@ class _EditBookWidgetState extends State<EditBookWidget>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.05),
+                                  alignment: AlignmentDirectional(0.00, 0.05),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       setState(() {
@@ -2009,7 +2010,7 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.05),
+                                  alignment: AlignmentDirectional(0.00, 0.05),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       setState(() {
@@ -2111,7 +2112,7 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.00, 0.00),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -3294,7 +3295,7 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                   children: [
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(0.0, 0.05),
+                                          AlignmentDirectional(0.00, 0.05),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           setState(() {
@@ -3348,7 +3349,7 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(0.0, 0.05),
+                                          AlignmentDirectional(0.00, 0.05),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           setState(() {
@@ -3411,7 +3412,7 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                     Expanded(
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.00, 0.00),
                                         child: Text(
                                           'You are almost there!',
                                           style: FlutterFlowTheme.of(context)
@@ -3482,7 +3483,8 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                 children: [
                                   Expanded(
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 16.0, 0.0, 16.0),
@@ -4029,7 +4031,7 @@ class _EditBookWidgetState extends State<EditBookWidget>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.05),
+                                  alignment: AlignmentDirectional(0.00, 0.05),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       setState(() {
@@ -4080,7 +4082,7 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                 Flexible(
                                   child: FFButtonWidget(
                                     onPressed: () async {},
-                                    text: 'Submit',
+                                    text: 'Save Changes',
                                     options: FFButtonOptions(
                                       width: 200.0,
                                       height: 40.0,

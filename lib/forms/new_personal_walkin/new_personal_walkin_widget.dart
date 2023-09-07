@@ -166,7 +166,7 @@ class _NewPersonalWalkinWidgetState extends State<NewPersonalWalkinWidget>
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.00, 0.00),
             child: Text(
               'New Walk-In',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -543,7 +543,7 @@ class _NewPersonalWalkinWidgetState extends State<NewPersonalWalkinWidget>
                                             Expanded(
                                               child: Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                    0.00, 0.00),
                                                 child: Text(
                                                   'Attachments*',
                                                   style: FlutterFlowTheme.of(
@@ -3298,7 +3298,7 @@ class _NewPersonalWalkinWidgetState extends State<NewPersonalWalkinWidget>
                             children: [
                               if (_model.currenTab > 0)
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.05),
+                                  alignment: AlignmentDirectional(0.00, 0.05),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       setState(() {
@@ -3374,7 +3374,7 @@ class _NewPersonalWalkinWidgetState extends State<NewPersonalWalkinWidget>
                                 ),
                               if (_model.currenTab == 2)
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.05),
+                                  alignment: AlignmentDirectional(0.00, 0.05),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       setState(() {

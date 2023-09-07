@@ -1,5 +1,5 @@
+import '/backend/api_requests/api_calls.dart';
 import '/components/channel_partner_details/channel_partner_details_widget.dart';
-import '/components/visit_profile_edit/visit_profile_edit_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -15,6 +15,8 @@ import 'package:provider/provider.dart';
 class VisitProfileDetailsModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
+  // Stores action output result for [Backend Call - API (View WalkIn)] action in VisitProfileDetails widget.
+  ApiCallResponse? apiResultzzg;
   // State field(s) for yourName widget.
   TextEditingController? yourNameController1;
   String? Function(BuildContext, String?)? yourNameController1Validator;

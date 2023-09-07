@@ -6,8 +6,6 @@ export '/pages/walk_in/walk_in_widget.dart' show WalkInWidget;
 export '/pages/booking_list/booking_list_widget.dart' show BookingListWidget;
 export '/pages/dashboard/dashboard_widget.dart' show DashboardWidget;
 export '/pages/schemes/schemes_widget.dart' show SchemesWidget;
-export '/pages/booking_details/booking_details_widget.dart'
-    show BookingDetailsWidget;
 export '/pages/splash_screen/splash_screen_widget.dart' show SplashScreenWidget;
 export '/forms/new_personal_walkin/new_personal_walkin_widget.dart'
     show NewPersonalWalkinWidget;
@@ -21,3 +19,6 @@ export '/forms/enter_walkin/enter_walkin_widget.dart' show EnterWalkinWidget;
 export '/forms/enter_personal_walkin/enter_personal_walkin_widget.dart'
     show EnterPersonalWalkinWidget;
 export '/forms/edit_book/edit_book_widget.dart' show EditBookWidget;
+export '/forms/edit_walkin/edit_walkin_widget.dart' show EditWalkinWidget;
+export '/pages/settings/settings_widget.dart' show SettingsWidget;
+export '/pages/follow_ups/follow_ups_widget.dart' show FollowUpsWidget;
