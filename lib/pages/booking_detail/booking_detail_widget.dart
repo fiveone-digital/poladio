@@ -1,4 +1,4 @@
-import '/components/booking_det/booking_det_widget.dart';
+import '/components/booking_det_bottom_widget.dart';
 import '/components/booking_payment/booking_payment_widget.dart';
 import '/components/demand_history/demand_history_widget.dart';
 import '/components/owner_doc_details/owner_doc_details_widget.dart';
@@ -976,9 +976,8 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: BookingDetWidget(
-                                            paymentDetail:
-                                                widget.bookingDetail!,
+                                          child: BookingDetBottomWidget(
+                                            bookingDet: widget.bookingDetail!,
                                           ),
                                         ),
                                       );

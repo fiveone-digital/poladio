@@ -1,4 +1,4 @@
-import '/components/booking_det/booking_det_widget.dart';
+import '/components/booking_det_bottom_widget.dart';
 import '/components/booking_payment/booking_payment_widget.dart';
 import '/components/demand_history/demand_history_widget.dart';
 import '/components/owner_doc_details/owner_doc_details_widget.dart';
