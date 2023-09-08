@@ -7,8 +7,6 @@ export '/pages/booking_list/booking_list_widget.dart' show BookingListWidget;
 export '/pages/dashboard/dashboard_widget.dart' show DashboardWidget;
 export '/pages/schemes/schemes_widget.dart' show SchemesWidget;
 export '/pages/splash_screen/splash_screen_widget.dart' show SplashScreenWidget;
-export '/forms/new_personal_walkin/new_personal_walkin_widget.dart'
-    show NewPersonalWalkinWidget;
 export '/forms/edit_booking/edit_booking_widget.dart' show EditBookingWidget;
 export '/pages/booking_detail/booking_detail_widget.dart'
     show BookingDetailWidget;

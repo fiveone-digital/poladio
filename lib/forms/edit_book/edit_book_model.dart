@@ -84,15 +84,15 @@ class EditBookModel extends FlutterFlowModel {
   TextEditingController? amtController;
   String? Function(BuildContext, String?)? amtControllerValidator;
   // State field(s) for CheckRefNo widget.
-  TextEditingController? checkRefNoController;
-  String? Function(BuildContext, String?)? checkRefNoControllerValidator;
+  TextEditingController? checkRefNoController1;
+  String? Function(BuildContext, String?)? checkRefNoController1Validator;
   DateTime? datePicked;
   // State field(s) for BookingDate widget.
   TextEditingController? bookingDateController;
   String? Function(BuildContext, String?)? bookingDateControllerValidator;
-  // State field(s) for PaymentMode widget.
-  String? paymentModeValue;
-  FormFieldController<String>? paymentModeValueController;
+  // State field(s) for CheckRefNo widget.
+  TextEditingController? checkRefNoController2;
+  String? Function(BuildContext, String?)? checkRefNoController2Validator;
   // State field(s) for Bank widget.
   TextEditingController? bankController;
   String? Function(BuildContext, String?)? bankControllerValidator;
@@ -142,8 +142,9 @@ class EditBookModel extends FlutterFlowModel {
     addressController?.dispose();
     agreementValueController?.dispose();
     amtController?.dispose();
-    checkRefNoController?.dispose();
+    checkRefNoController1?.dispose();
     bookingDateController?.dispose();
+    checkRefNoController2?.dispose();
     bankController?.dispose();
     branchController?.dispose();
     paymentTermsController?.dispose();

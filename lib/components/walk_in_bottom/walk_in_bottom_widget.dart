@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -71,7 +72,7 @@ class _WalkInBottomWidgetState extends State<WalkInBottomWidget> {
 
     return Container(
       width: double.infinity,
-      height: 720.0,
+      height: 730.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
@@ -214,10 +215,10 @@ class _WalkInBottomWidgetState extends State<WalkInBottomWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          getJsonField(
+                          functions.humanDateFormat(getJsonField(
                             widget.walkinDetail,
                             r'''$.date''',
-                          ).toString(),
+                          ).toString())!,
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(

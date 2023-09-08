@@ -23,7 +23,12 @@ import 'edit_book_model.dart';
 export 'edit_book_model.dart';
 
 class EditBookWidget extends StatefulWidget {
-  const EditBookWidget({Key? key}) : super(key: key);
+  const EditBookWidget({
+    Key? key,
+    required this.editBook,
+  }) : super(key: key);
+
+  final dynamic editBook;
 
   @override
   _EditBookWidgetState createState() => _EditBookWidgetState();
@@ -172,17 +177,53 @@ class _EditBookWidgetState extends State<EditBookWidget>
       }
     });
 
-    _model.contactController1 ??= TextEditingController();
+    _model.contactController1 ??= TextEditingController(
+        text: getJsonField(
+      widget.editBook,
+      r'''$.mobile''',
+    ).toString().toString());
     _model.contactController2 ??= TextEditingController();
     _model.contactController3 ??= TextEditingController();
-    _model.addressController ??= TextEditingController();
-    _model.agreementValueController ??= TextEditingController();
-    _model.amtController ??= TextEditingController();
-    _model.checkRefNoController ??= TextEditingController();
-    _model.bookingDateController ??=
-        TextEditingController(text: dateTimeFormat('d/M/y', _model.datePicked));
-    _model.bankController ??= TextEditingController();
-    _model.branchController ??= TextEditingController();
+    _model.addressController ??= TextEditingController(
+        text: getJsonField(
+      widget.editBook,
+      r'''$.address''',
+    ).toString().toString());
+    _model.agreementValueController ??= TextEditingController(
+        text: getJsonField(
+      widget.editBook,
+      r'''$.agreement_value''',
+    ).toString().toString());
+    _model.amtController ??= TextEditingController(
+        text: getJsonField(
+      widget.editBook,
+      r'''$.booking_payment.amount''',
+    ).toString().toString());
+    _model.checkRefNoController1 ??= TextEditingController(
+        text: '${getJsonField(
+      widget.editBook,
+      r'''$.booking_payment.reference_no''',
+    ).toString().toString()}');
+    _model.bookingDateController ??= TextEditingController(
+        text: getJsonField(
+      widget.editBook,
+      r'''$.booking_payment.date''',
+    ).toString().toString());
+    _model.checkRefNoController2 ??= TextEditingController(
+        text: getJsonField(
+      widget.editBook,
+      r'''$.booking_payment.mode''',
+    ).toString().toString());
+    _model.bankController ??= TextEditingController(
+        text: getJsonField(
+      widget.editBook,
+      r'''$.booking_payment.bank_name''',
+    ).toString().toString());
+    _model.branchController ??= TextEditingController(
+        text: getJsonField(
+      widget.editBook,
+      r'''$.booking_payment.bank_branch''',
+    ).toString().toString());
     _model.paymentTermsController ??= TextEditingController();
     _model.channelCompanyNameController ??= TextEditingController();
     _model.channelPartnerNameController ??= TextEditingController();
@@ -2187,7 +2228,12 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                             controller:
                                                 _model.unitNoValueController ??=
                                                     FormFieldController<String>(
-                                                        null),
+                                              _model.unitNoValue ??=
+                                                  getJsonField(
+                                                widget.editBook,
+                                                r'''$.unit.name''',
+                                              ).toString(),
+                                            ),
                                             options: functions.getDropdownItems(
                                                 FFAppState()
                                                     .UnitMasterList
@@ -2364,7 +2410,6 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
-                                                maxLines: null,
                                                 cursorColor: Color(0xFF6F61EF),
                                                 validator: _model
                                                     .amtControllerValidator
@@ -2386,7 +2431,7 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              'CHECK/REF NO',
+                                              'REF NO',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
@@ -2403,8 +2448,8 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                             child: Container(
                                               width: 190.0,
                                               child: TextFormField(
-                                                controller:
-                                                    _model.checkRefNoController,
+                                                controller: _model
+                                                    .checkRefNoController1,
                                                 autofocus: true,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
@@ -2514,7 +2559,7 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                                 maxLines: null,
                                                 cursorColor: Color(0xFF6F61EF),
                                                 validator: _model
-                                                    .checkRefNoControllerValidator
+                                                    .checkRefNoController1Validator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -2741,47 +2786,122 @@ class _EditBookWidgetState extends State<EditBookWidget>
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 0.0, 0.0),
-                                            child: FlutterFlowDropDown<String>(
-                                              controller: _model
-                                                      .paymentModeValueController ??=
-                                                  FormFieldController<String>(
-                                                      null),
-                                              options: [
-                                                'Check',
-                                                'UPI',
-                                                'Neft',
-                                                'Cash'
-                                              ],
-                                              onChanged: (val) => setState(() =>
-                                                  _model.paymentModeValue =
-                                                      val),
-                                              height: 40.0,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                              icon: Icon(
-                                                Icons
-                                                    .keyboard_arrow_down_rounded,
-                                                color:
+                                            child: Container(
+                                              width: 190.0,
+                                              child: TextFormField(
+                                                controller: _model
+                                                    .checkRefNoController2,
+                                                autofocus: true,
+                                                obscureText: false,
+                                                decoration: InputDecoration(
+                                                  isDense: true,
+                                                  labelStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Plus Jakarta Sans',
+                                                        color:
+                                                            Color(0xFF606A85),
+                                                        fontSize: 14.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Plus Jakarta Sans',
+                                                        color:
+                                                            Color(0xFF606A85),
+                                                        fontSize: 14.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .textFieldBorder,
+                                                      width: 2.0,
+                                                    ),
+                                                    borderRadius:
+                                                        const BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(4.0),
+                                                      topRight:
+                                                          Radius.circular(4.0),
+                                                    ),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0xFF6F61EF),
+                                                      width: 2.0,
+                                                    ),
+                                                    borderRadius:
+                                                        const BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(4.0),
+                                                      topRight:
+                                                          Radius.circular(4.0),
+                                                    ),
+                                                  ),
+                                                  errorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0xFFFF5963),
+                                                      width: 2.0,
+                                                    ),
+                                                    borderRadius:
+                                                        const BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(4.0),
+                                                      topRight:
+                                                          Radius.circular(4.0),
+                                                    ),
+                                                  ),
+                                                  focusedErrorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0xFFFF5963),
+                                                      width: 2.0,
+                                                    ),
+                                                    borderRadius:
+                                                        const BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(4.0),
+                                                      topRight:
+                                                          Radius.circular(4.0),
+                                                    ),
+                                                  ),
+                                                  filled: true,
+                                                  fillColor: Colors.white,
+                                                  contentPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(20.0, 10.0,
+                                                              20.0, 20.0),
+                                                ),
+                                                style:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                size: 24.0,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Plus Jakarta Sans',
+                                                          color:
+                                                              Color(0xFF15161E),
+                                                          fontSize: 14.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                cursorColor: Color(0xFF6F61EF),
+                                                validator: _model
+                                                    .checkRefNoController2Validator
+                                                    .asValidator(context),
                                               ),
-                                              fillColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              elevation: 0.0,
-                                              borderColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .textFieldBorder,
-                                              borderWidth: 0.0,
-                                              borderRadius: 0.0,
-                                              margin: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 4.0, 16.0, 4.0),
-                                              hidesUnderline: true,
-                                              isSearchable: false,
-                                              isMultiSelect: false,
                                             ),
                                           ),
                                         ],

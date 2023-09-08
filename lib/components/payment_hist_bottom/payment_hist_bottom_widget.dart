@@ -48,7 +48,7 @@ class _PaymentHistBottomWidgetState extends State<PaymentHistBottomWidget> {
 
     return Container(
       width: double.infinity,
-      height: 540.0,
+      height: 555.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),

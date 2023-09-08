@@ -170,6 +170,26 @@ class _EditWalkinWidgetState extends State<EditWalkinWidget>
       widget.walkinDetail,
       r'''$.sr_no''',
     ).toString().toString());
+    _model.budgetController ??= TextEditingController(
+        text: getJsonField(
+      widget.walkinDetail,
+      r'''$.budget''',
+    ).toString().toString());
+    _model.interstedController ??= TextEditingController(
+        text: getJsonField(
+      widget.walkinDetail,
+      r'''$.interested_in''',
+    ).toString().toString());
+    _model.reasonPurchController ??= TextEditingController(
+        text: getJsonField(
+      widget.walkinDetail,
+      r'''$.reason_for_purchase''',
+    ).toString().toString());
+    _model.sourceController ??= TextEditingController(
+        text: getJsonField(
+      widget.walkinDetail,
+      r'''$.reason_for_source''',
+    ).toString().toString());
     _model.websiteController ??= TextEditingController(
         text: getJsonField(
       widget.walkinDetail,
@@ -2354,76 +2374,179 @@ class _EditWalkinWidgetState extends State<EditWalkinWidget>
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'BUDGET',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 12.0,
-                                                      ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                              child:
-                                                  FlutterFlowDropDown<String>(
-                                                controller: _model
-                                                        .budgetValueController ??=
-                                                    FormFieldController<String>(
-                                                  _model.budgetValue ??=
-                                                      getJsonField(
-                                                    widget.walkinDetail,
-                                                    r'''$.budget''',
-                                                  ).toString(),
-                                                ),
-                                                options: [
-                                                  '50-60L',
-                                                  '60-70L',
-                                                  '70-80L',
-                                                  '80-90L',
-                                                  '90L & Above'
-                                                ],
-                                                onChanged: (val) => setState(
-                                                    () => _model.budgetValue =
-                                                        val),
-                                                width: 160.0,
-                                                height: 40.0,
-                                                textStyle:
+                                        Expanded(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'BUDGET',
+                                                style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                                icon: Icon(
-                                                  Icons
-                                                      .keyboard_arrow_down_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  size: 24.0,
-                                                ),
-                                                fillColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                elevation: 0.0,
-                                                borderColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .textFieldBorder,
-                                                borderWidth: 2.0,
-                                                borderRadius: 0.0,
-                                                margin: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 4.0, 16.0, 4.0),
-                                                hidesUnderline: true,
-                                                isSearchable: false,
-                                                isMultiSelect: false,
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 12.0,
+                                                        ),
                                               ),
-                                            ),
-                                          ],
+                                              Container(
+                                                width: 200.0,
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 5.0, 0.0),
+                                                  child: Container(
+                                                    width: 190.0,
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .budgetController,
+                                                      autofocus: true,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        isDense: true,
+                                                        labelStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: Color(
+                                                                      0xFF606A85),
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: Color(
+                                                                      0xFF606A85),
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
+                                                        enabledBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .textFieldBorder,
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              const BorderRadius
+                                                                  .only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                          ),
+                                                        ),
+                                                        focusedBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0xFF6F61EF),
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              const BorderRadius
+                                                                  .only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                          ),
+                                                        ),
+                                                        errorBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0xFFFF5963),
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              const BorderRadius
+                                                                  .only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                          ),
+                                                        ),
+                                                        focusedErrorBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Color(
+                                                                0xFFFF5963),
+                                                            width: 2.0,
+                                                          ),
+                                                          borderRadius:
+                                                              const BorderRadius
+                                                                  .only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    4.0),
+                                                          ),
+                                                        ),
+                                                        filled: true,
+                                                        fillColor: Colors.white,
+                                                        contentPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    20.0,
+                                                                    10.0,
+                                                                    20.0,
+                                                                    20.0),
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Plus Jakarta Sans',
+                                                            color: Color(
+                                                                0xFF15161E),
+                                                            fontSize: 14.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                      maxLines: null,
+                                                      cursorColor:
+                                                          Color(0xFF6F61EF),
+                                                      validator: _model
+                                                          .budgetControllerValidator
+                                                          .asValidator(context),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                         Expanded(
                                           child: Column(
@@ -2450,57 +2573,145 @@ class _EditWalkinWidgetState extends State<EditWalkinWidget>
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 0.0, 0.0, 0.0),
-                                                child:
-                                                    FlutterFlowDropDown<String>(
-                                                  controller: _model
-                                                          .interestedInValueController ??=
-                                                      FormFieldController<
-                                                          String>(
-                                                    _model.interestedInValue ??=
-                                                        getJsonField(
-                                                      widget.walkinDetail,
-                                                      r'''$.interested_in''',
-                                                    ).toString(),
-                                                  ),
-                                                  options: [
-                                                    '1bhk',
-                                                    '2bhk',
-                                                    '3bhk'
-                                                  ],
-                                                  onChanged: (val) => setState(
-                                                      () => _model
-                                                              .interestedInValue =
-                                                          val),
-                                                  height: 40.0,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium,
-                                                  icon: Icon(
-                                                    Icons
-                                                        .keyboard_arrow_down_rounded,
-                                                    color: FlutterFlowTheme.of(
+                                                child: Container(
+                                                  width: 190.0,
+                                                  child: TextFormField(
+                                                    controller: _model
+                                                        .interstedController,
+                                                    autofocus: true,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      isDense: true,
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: Color(
+                                                                    0xFF606A85),
+                                                                fontSize: 14.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: Color(
+                                                                    0xFF606A85),
+                                                                fontSize: 14.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .textFieldBorder,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                        ),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0xFF6F61EF),
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                        ),
+                                                      ),
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0xFFFF5963),
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                        ),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0xFFFF5963),
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                        ),
+                                                      ),
+                                                      filled: true,
+                                                      fillColor: Colors.white,
+                                                      contentPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  20.0,
+                                                                  10.0,
+                                                                  20.0,
+                                                                  20.0),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondaryText,
-                                                    size: 24.0,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Plus Jakarta Sans',
+                                                          color:
+                                                              Color(0xFF15161E),
+                                                          fontSize: 14.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                    maxLines: null,
+                                                    cursorColor:
+                                                        Color(0xFF6F61EF),
+                                                    validator: _model
+                                                        .interstedControllerValidator
+                                                        .asValidator(context),
                                                   ),
-                                                  fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  elevation: 0.0,
-                                                  borderColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .textFieldBorder,
-                                                  borderWidth: 2.0,
-                                                  borderRadius: 0.0,
-                                                  margin: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          16.0, 4.0, 16.0, 4.0),
-                                                  hidesUnderline: true,
-                                                  isSearchable: false,
-                                                  isMultiSelect: false,
                                                 ),
                                               ),
                                             ],
@@ -2537,59 +2748,144 @@ class _EditWalkinWidgetState extends State<EditWalkinWidget>
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 5.0, 0.0),
-                                                child:
-                                                    FlutterFlowDropDown<String>(
-                                                  controller: _model
-                                                          .reasonPurchaseValueController ??=
-                                                      FormFieldController<
-                                                          String>(
-                                                    _model.reasonPurchaseValue ??=
-                                                        getJsonField(
-                                                      widget.walkinDetail,
-                                                      r'''$.reason_for_purchase''',
-                                                    ).toString(),
-                                                  ),
-                                                  options: [
-                                                    'Self-Occupation',
-                                                    'Investment'
-                                                  ],
-                                                  onChanged: (val) => setState(
-                                                      () => _model
-                                                              .reasonPurchaseValue =
-                                                          val),
-                                                  height: 40.0,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 14.0,
+                                                child: Container(
+                                                  width: 190.0,
+                                                  child: TextFormField(
+                                                    controller: _model
+                                                        .reasonPurchController,
+                                                    autofocus: true,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      isDense: true,
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: Color(
+                                                                    0xFF606A85),
+                                                                fontSize: 14.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: Color(
+                                                                    0xFF606A85),
+                                                                fontSize: 14.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .textFieldBorder,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                        ),
                                                       ),
-                                                  icon: Icon(
-                                                    Icons
-                                                        .keyboard_arrow_down_rounded,
-                                                    color: FlutterFlowTheme.of(
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0xFF6F61EF),
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                        ),
+                                                      ),
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0xFFFF5963),
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                        ),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0xFFFF5963),
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                        ),
+                                                      ),
+                                                      filled: true,
+                                                      fillColor: Colors.white,
+                                                      contentPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  20.0,
+                                                                  10.0,
+                                                                  20.0,
+                                                                  20.0),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondaryText,
-                                                    size: 24.0,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Plus Jakarta Sans',
+                                                          color:
+                                                              Color(0xFF15161E),
+                                                          fontSize: 14.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                    cursorColor:
+                                                        Color(0xFF6F61EF),
+                                                    validator: _model
+                                                        .reasonPurchControllerValidator
+                                                        .asValidator(context),
                                                   ),
-                                                  fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  elevation: 0.0,
-                                                  borderColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .textFieldBorder,
-                                                  borderWidth: 2.0,
-                                                  borderRadius: 0.0,
-                                                  margin: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          16.0, 4.0, 16.0, 4.0),
-                                                  hidesUnderline: true,
-                                                  isSearchable: false,
-                                                  isMultiSelect: false,
                                                 ),
                                               ),
                                             ],
@@ -2620,57 +2916,144 @@ class _EditWalkinWidgetState extends State<EditWalkinWidget>
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 0.0, 0.0, 0.0),
-                                                child:
-                                                    FlutterFlowDropDown<String>(
-                                                  controller: _model
-                                                          .sourceValueController ??=
-                                                      FormFieldController<
-                                                          String>(
-                                                    _model.sourceValue ??=
-                                                        getJsonField(
-                                                      widget.walkinDetail,
-                                                      r'''$.source''',
-                                                    ).toString(),
-                                                  ),
-                                                  options: [
-                                                    'Hoarding',
-                                                    'Direct Walk-in',
-                                                    'Newspaper',
-                                                    'Online'
-                                                  ],
-                                                  onChanged: (val) => setState(
-                                                      () => _model.sourceValue =
-                                                          val),
-                                                  height: 40.0,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium,
-                                                  icon: Icon(
-                                                    Icons
-                                                        .keyboard_arrow_down_rounded,
-                                                    color: FlutterFlowTheme.of(
+                                                child: Container(
+                                                  width: 190.0,
+                                                  child: TextFormField(
+                                                    controller:
+                                                        _model.sourceController,
+                                                    autofocus: true,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      isDense: true,
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: Color(
+                                                                    0xFF606A85),
+                                                                fontSize: 14.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: Color(
+                                                                    0xFF606A85),
+                                                                fontSize: 14.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .textFieldBorder,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                        ),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0xFF6F61EF),
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                        ),
+                                                      ),
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0xFFFF5963),
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                        ),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0xFFFF5963),
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  4.0),
+                                                        ),
+                                                      ),
+                                                      filled: true,
+                                                      fillColor: Colors.white,
+                                                      contentPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  20.0,
+                                                                  10.0,
+                                                                  20.0,
+                                                                  20.0),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondaryText,
-                                                    size: 24.0,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Plus Jakarta Sans',
+                                                          color:
+                                                              Color(0xFF15161E),
+                                                          fontSize: 14.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                    cursorColor:
+                                                        Color(0xFF6F61EF),
+                                                    validator: _model
+                                                        .sourceControllerValidator
+                                                        .asValidator(context),
                                                   ),
-                                                  fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  elevation: 0.0,
-                                                  borderColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .textFieldBorder,
-                                                  borderWidth: 2.0,
-                                                  borderRadius: 0.0,
-                                                  margin: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          16.0, 4.0, 16.0, 4.0),
-                                                  hidesUnderline: true,
-                                                  isSearchable: false,
-                                                  isMultiSelect: false,
                                                 ),
                                               ),
                                             ],
@@ -3836,12 +4219,13 @@ class _EditWalkinWidgetState extends State<EditWalkinWidget>
                                   officeMobile: int.tryParse(
                                       _model.officeNoController.text),
                                   email: _model.emailController.text,
-                                  interestedIn: _model.interestedInValue,
-                                  budget: _model.budgetValue,
+                                  interestedIn: _model.interstedController.text,
+                                  budget: _model.budgetController.text,
                                   locationPreferred:
                                       _model.locPrefController.text,
-                                  source: _model.sourceValue,
-                                  reasonForPurchase: _model.reasonPurchaseValue,
+                                  source: _model.sourceController.text,
+                                  reasonForPurchase:
+                                      _model.reasonPurchController.text,
                                   officeAddress:
                                       _model.officeAddressController.text,
                                   website: _model.websiteController.text,

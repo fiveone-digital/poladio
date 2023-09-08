@@ -117,17 +117,17 @@ class EditWalkinModel extends FlutterFlowModel {
   }
 
   // State field(s) for Budget widget.
-  String? budgetValue;
-  FormFieldController<String>? budgetValueController;
-  // State field(s) for InterestedIn widget.
-  String? interestedInValue;
-  FormFieldController<String>? interestedInValueController;
-  // State field(s) for ReasonPurchase widget.
-  String? reasonPurchaseValue;
-  FormFieldController<String>? reasonPurchaseValueController;
+  TextEditingController? budgetController;
+  String? Function(BuildContext, String?)? budgetControllerValidator;
+  // State field(s) for Intersted widget.
+  TextEditingController? interstedController;
+  String? Function(BuildContext, String?)? interstedControllerValidator;
+  // State field(s) for ReasonPurch widget.
+  TextEditingController? reasonPurchController;
+  String? Function(BuildContext, String?)? reasonPurchControllerValidator;
   // State field(s) for Source widget.
-  String? sourceValue;
-  FormFieldController<String>? sourceValueController;
+  TextEditingController? sourceController;
+  String? Function(BuildContext, String?)? sourceControllerValidator;
   // State field(s) for Website widget.
   TextEditingController? websiteController;
   String? Function(BuildContext, String?)? websiteControllerValidator;
@@ -175,6 +175,10 @@ class EditWalkinModel extends FlutterFlowModel {
     officeAddressController?.dispose();
     locPrefController?.dispose();
     srNoController?.dispose();
+    budgetController?.dispose();
+    interstedController?.dispose();
+    reasonPurchController?.dispose();
+    sourceController?.dispose();
     websiteController?.dispose();
     existingNameController?.dispose();
     channelCompanyNameController?.dispose();

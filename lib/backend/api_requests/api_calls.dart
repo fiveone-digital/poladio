@@ -83,6 +83,7 @@ class BookingListCall {
   Future<ApiCallResponse> call({
     String? token = '',
     int? id,
+    String? unitNumber = '',
   }) {
     return ApiManager.instance.makeApiCall(
       callName: 'BookingList',
@@ -92,7 +93,9 @@ class BookingListCall {
         ...PoladioAPIsGroup.headers,
         'Authorization': 'Bearer ${token}',
       },
-      params: {},
+      params: {
+        'search[unit.number]': unitNumber,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

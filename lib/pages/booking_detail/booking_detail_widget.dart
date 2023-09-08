@@ -1,6 +1,6 @@
-import '/components/booking_det_bottom_widget.dart';
-import '/components/booking_payment/booking_payment_widget.dart';
-import '/components/demand_history/demand_history_widget.dart';
+import '/components/booking_det_bottom/booking_det_bottom_widget.dart';
+import '/components/booking_payment_bottom/booking_payment_bottom_widget.dart';
+import '/components/demand_hist_bottom/demand_hist_bottom_widget.dart';
 import '/components/owner_doc_details/owner_doc_details_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -292,9 +292,9 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       context.pushNamed(
-                        'EditBooking',
+                        'EditBook',
                         queryParameters: {
-                          'editBooking': serializeParam(
+                          'editBook': serializeParam(
                             widget.bookingDetail,
                             ParamType.JSON,
                           ),
@@ -590,8 +590,9 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: DemandHistoryWidget(
-                                            demandHist: widget.bookingDetail!,
+                                          child: DemandHistBottomWidget(
+                                            demandHistory:
+                                                widget.bookingDetail!,
                                           ),
                                         ),
                                       );
@@ -823,8 +824,8 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: BookingPaymentWidget(
-                                            paymentDetail:
+                                          child: BookingPaymentBottomWidget(
+                                            bookingDetail:
                                                 widget.bookingDetail!,
                                           ),
                                         ),
@@ -1065,7 +1066,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                   alignment: AlignmentDirectional(1.00, 1.00),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 24.0, 24.0),
                     child: FFButtonWidget(
                       onPressed: () {
                         print('Button pressed ...');

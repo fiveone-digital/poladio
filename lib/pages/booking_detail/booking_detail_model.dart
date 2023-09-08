@@ -1,6 +1,6 @@
-import '/components/booking_det_bottom_widget.dart';
-import '/components/booking_payment/booking_payment_widget.dart';
-import '/components/demand_history/demand_history_widget.dart';
+import '/components/booking_det_bottom/booking_det_bottom_widget.dart';
+import '/components/booking_payment_bottom/booking_payment_bottom_widget.dart';
+import '/components/demand_hist_bottom/demand_hist_bottom_widget.dart';
 import '/components/owner_doc_details/owner_doc_details_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';

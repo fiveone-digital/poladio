@@ -1,10 +1,13 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/side_menu/side_menu_widget.dart';
-import '/components/walk_in_bottom_widget.dart';
+import '/components/walk_in_bottom/walk_in_bottom_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'dart:async';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +30,8 @@ class _WalkInWidgetState extends State<WalkInWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => WalkInModel());
+
+    _model.searchController ??= TextEditingController();
   }
 
   @override
@@ -41,9 +46,11 @@ class _WalkInWidgetState extends State<WalkInWidget> {
     context.watch<FFAppState>();
 
     return FutureBuilder<ApiCallResponse>(
-      future: PoladioAPIsGroup.prospectCall.call(
-        token: FFAppState().token,
-      ),
+      future: (_model.apiRequestCompleter ??= Completer<ApiCallResponse>()
+            ..complete(PoladioAPIsGroup.prospectCall.call(
+              token: FFAppState().token,
+            )))
+          .future,
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -113,8 +120,10 @@ class _WalkInWidgetState extends State<WalkInWidget> {
                         color: FlutterFlowTheme.of(context).primary,
                         size: 24.0,
                       ),
-                      onPressed: () {
-                        print('Search pressed ...');
+                      onPressed: () async {
+                        setState(() {
+                          _model.search = !_model.search;
+                        });
                       },
                     ),
                   ),
@@ -131,6 +140,71 @@ class _WalkInWidgetState extends State<WalkInWidget> {
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    if (_model.search)
+                      Container(
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          child: TextFormField(
+                            controller: _model.searchController,
+                            onChanged: (_) => EasyDebounce.debounce(
+                              '_model.searchController',
+                              Duration(milliseconds: 2000),
+                              () async {
+                                setState(
+                                    () => _model.apiRequestCompleter = null);
+                                await _model.waitForApiRequestCompleted();
+                              },
+                            ),
+                            onFieldSubmitted: (_) async {
+                              setState(() => _model.apiRequestCompleter = null);
+                              await _model.waitForApiRequestCompleted();
+                            },
+                            autofocus: true,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              labelText: 'Search Name',
+                              labelStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
+                              hintStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
+                              enabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              errorBorder: InputBorder.none,
+                              focusedErrorBorder: InputBorder.none,
+                              filled: true,
+                              fillColor: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              suffixIcon: _model
+                                      .searchController!.text.isNotEmpty
+                                  ? InkWell(
+                                      onTap: () async {
+                                        _model.searchController?.clear();
+                                        setState(() =>
+                                            _model.apiRequestCompleter = null);
+                                        await _model
+                                            .waitForApiRequestCompleted();
+                                        setState(() {});
+                                      },
+                                      child: Icon(
+                                        Icons.clear,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        size: 20.0,
+                                      ),
+                                    )
+                                  : null,
+                            ),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            validator: _model.searchControllerValidator
+                                .asValidator(context),
+                          ),
+                        ),
+                      ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
@@ -278,10 +352,11 @@ class _WalkInWidgetState extends State<WalkInWidget> {
                                                             .fromSTEB(0.0, 5.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      getJsonField(
+                                                      functions.humanDateFormat(
+                                                          getJsonField(
                                                         prospectsItem,
                                                         r'''$.date''',
-                                                      ).toString(),
+                                                      ).toString())!,
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)

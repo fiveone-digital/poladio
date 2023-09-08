@@ -1,5 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/payment_hist_bottom_widget.dart';
+import '/components/payment_hist_bottom/payment_hist_bottom_widget.dart';
 import '/components/side_menu/side_menu_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';

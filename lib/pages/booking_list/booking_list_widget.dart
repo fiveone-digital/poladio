@@ -4,6 +4,8 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,6 +29,8 @@ class _BookingListWidgetState extends State<BookingListWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BookingListModel());
+
+    _model.searchController ??= TextEditingController();
   }
 
   @override
@@ -41,9 +45,12 @@ class _BookingListWidgetState extends State<BookingListWidget> {
     context.watch<FFAppState>();
 
     return FutureBuilder<ApiCallResponse>(
-      future: PoladioAPIsGroup.bookingListCall.call(
-        token: FFAppState().token,
-      ),
+      future: (_model.apiRequestCompleter ??= Completer<ApiCallResponse>()
+            ..complete(PoladioAPIsGroup.bookingListCall.call(
+              token: FFAppState().token,
+              unitNumber: _model.searchController.text,
+            )))
+          .future,
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -115,8 +122,10 @@ class _BookingListWidgetState extends State<BookingListWidget> {
                         color: FlutterFlowTheme.of(context).primary,
                         size: 24.0,
                       ),
-                      onPressed: () {
-                        print('Search pressed ...');
+                      onPressed: () async {
+                        setState(() {
+                          _model.search = !_model.search;
+                        });
                       },
                     ),
                   ),
@@ -132,6 +141,71 @@ class _BookingListWidgetState extends State<BookingListWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
+                    if (_model.search)
+                      Container(
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          child: TextFormField(
+                            controller: _model.searchController,
+                            onChanged: (_) => EasyDebounce.debounce(
+                              '_model.searchController',
+                              Duration(milliseconds: 2000),
+                              () async {
+                                setState(
+                                    () => _model.apiRequestCompleter = null);
+                                await _model.waitForApiRequestCompleted();
+                              },
+                            ),
+                            onFieldSubmitted: (_) async {
+                              setState(() => _model.apiRequestCompleter = null);
+                              await _model.waitForApiRequestCompleted();
+                            },
+                            autofocus: true,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              labelText: 'Search Flat no',
+                              labelStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
+                              hintStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
+                              enabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              errorBorder: InputBorder.none,
+                              focusedErrorBorder: InputBorder.none,
+                              filled: true,
+                              fillColor: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              suffixIcon: _model
+                                      .searchController!.text.isNotEmpty
+                                  ? InkWell(
+                                      onTap: () async {
+                                        _model.searchController?.clear();
+                                        setState(() =>
+                                            _model.apiRequestCompleter = null);
+                                        await _model
+                                            .waitForApiRequestCompleted();
+                                        setState(() {});
+                                      },
+                                      child: Icon(
+                                        Icons.clear,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        size: 20.0,
+                                      ),
+                                    )
+                                  : null,
+                            ),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            validator: _model.searchControllerValidator
+                                .asValidator(context),
+                          ),
+                        ),
+                      ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 5.0),
@@ -227,7 +301,7 @@ class _BookingListWidgetState extends State<BookingListWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 12.0, 16.0, 12.0),
+                                          16.0, 12.0, 0.0, 12.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -250,18 +324,31 @@ class _BookingListWidgetState extends State<BookingListWidget> {
                                                   fontSize: 18.0,
                                                 ),
                                           ),
-                                          Text(
-                                            getJsonField(
-                                              bookingsItem,
-                                              r'''$.owner.name''',
-                                            ).toString(),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyLarge
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 16.0,
-                                                  fontWeight: FontWeight.w500,
+                                          Expanded(
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  1.00, 0.00),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 0.0),
+                                                child: Text(
+                                                  getJsonField(
+                                                    bookingsItem,
+                                                    r'''$.owner.name''',
+                                                  ).toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 16.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
                                                 ),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),

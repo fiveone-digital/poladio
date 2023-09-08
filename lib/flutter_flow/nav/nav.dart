@@ -105,13 +105,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => SplashScreenWidget(),
         ),
         FFRoute(
-          name: 'NewPersonalWalkin',
-          path: '/newPersonalWalkin',
-          builder: (context, params) => NewPersonalWalkinWidget(
-            newWalkin: params.getParam('newWalkin', ParamType.JSON),
-          ),
-        ),
-        FFRoute(
           name: 'EditBooking',
           path: '/editBooking',
           builder: (context, params) => EditBookingWidget(
@@ -148,7 +141,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'EditBook',
           path: '/editBook',
-          builder: (context, params) => EditBookWidget(),
+          builder: (context, params) => EditBookWidget(
+            editBook: params.getParam('editBook', ParamType.JSON),
+          ),
         ),
         FFRoute(
           name: 'EditWalkin',
