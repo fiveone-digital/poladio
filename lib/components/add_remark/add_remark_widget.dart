@@ -94,9 +94,6 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
             child: Container(
               width: double.infinity,
-              constraints: BoxConstraints(
-                maxWidth: 670.0,
-              ),
               decoration: BoxDecoration(
                 color: Colors.white,
                 boxShadow: [
@@ -168,7 +165,7 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              'Booking Name: Rohit Dubey',
+                              'Booking Name: ',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -489,43 +486,113 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
                       ),
                     ],
                   ),
-                  ListView(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 7.0),
+                    child: ListView(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 5.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 0.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 16.0, 0.0),
+                                          child: RichText(
+                                            textScaleFactor:
+                                                MediaQuery.of(context)
+                                                    .textScaleFactor,
+                                            text: TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: 'Remark ',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                ),
+                                                TextSpan(
+                                                  text: '- Date',
+                                                  style: TextStyle(),
+                                                )
+                                              ],
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 0.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 16.0, 0.0),
-                                        child: RichText(
-                                          textScaleFactor:
-                                              MediaQuery.of(context)
-                                                  .textScaleFactor,
-                                          text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: 'Remark ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 5.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 7.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 0.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 16.0, 0.0),
+                                            child: RichText(
+                                              textScaleFactor:
+                                                  MediaQuery.of(context)
+                                                      .textScaleFactor,
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: 'Remark ',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
@@ -535,86 +602,29 @@ class _AddRemarkWidgetState extends State<AddRemarkWidget>
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
-                                              ),
-                                              TextSpan(
-                                                text: '- Date',
-                                                style: TextStyle(),
-                                              )
-                                            ],
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 0.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 16.0, 7.0),
-                                        child: RichText(
-                                          textScaleFactor:
-                                              MediaQuery.of(context)
-                                                  .textScaleFactor,
-                                          text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: 'Remark ',
+                                                  ),
+                                                  TextSpan(
+                                                    text: '- Date',
+                                                    style: TextStyle(),
+                                                  )
+                                                ],
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                        .bodyMedium,
                                               ),
-                                              TextSpan(
-                                                text: '- Date',
-                                                style: TextStyle(),
-                                              )
-                                            ],
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                            ),
                                           ),
                                         ),
-                                      ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),

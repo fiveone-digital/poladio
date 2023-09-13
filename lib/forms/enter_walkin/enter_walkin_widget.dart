@@ -3466,10 +3466,9 @@ class _EnterWalkinWidgetState extends State<EnterWalkinWidget>
                         animationsMap['containerOnPageLoadAnimation3']!),
                   if (_model.currentTab == 3)
                     Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: 180.0,
+                      height: MediaQuery.sizeOf(context).height * 1.0,
                       decoration: BoxDecoration(
-                        color: Color(0xFF90F6A7),
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
                       child: Align(
                         alignment: AlignmentDirectional(0.00, 0.00),

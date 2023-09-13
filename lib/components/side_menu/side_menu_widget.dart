@@ -79,7 +79,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('Dashboard');
+                  context.goNamed('Dashboard');
                 },
                 child: ListTile(
                   leading: Icon(
@@ -119,7 +119,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('Walk_in');
+                  context.goNamed('Walk_in');
                 },
                 child: ListTile(
                   leading: Icon(
@@ -157,7 +157,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('BookingList');
+                  context.goNamed('BookingList');
                 },
                 child: ListTile(
                   leading: FaIcon(
@@ -193,7 +193,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('PaymentHist');
+                  context.goNamed('PaymentList');
                 },
                 child: ListTile(
                   leading: Icon(
@@ -229,7 +229,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('Projects');
+                  context.goNamed('ProjectList');
                 },
                 child: ListTile(
                   leading: Icon(
@@ -256,7 +256,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
           hoverColor: Colors.transparent,
           highlightColor: Colors.transparent,
           onTap: () async {
-            context.pushNamed('Settings');
+            context.goNamed('Settings');
           },
           child: Container(
             height: 60.0,

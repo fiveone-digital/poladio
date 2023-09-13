@@ -766,15 +766,11 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                       shape: BoxShape.circle,
                                     ),
                                     alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: Text(
-                                      '2',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                          ),
+                                    child: Icon(
+                                      Icons.ballot,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      size: 24.0,
                                     ),
                                   ),
                                   Expanded(
@@ -782,7 +778,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        'DEMANDS DUE',
+                                        'DEMANDS ',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -853,16 +849,11 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                       ),
                                       alignment:
                                           AlignmentDirectional(0.00, 0.00),
-                                      child: Text(
-                                        '2',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                            ),
+                                      child: Icon(
+                                        Icons.playlist_add_check,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        size: 24.0,
                                       ),
                                     ),
                                     Expanded(
@@ -870,7 +861,7 @@ class _BookingDetailWidgetState extends State<BookingDetailWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 0.0, 0.0),
                                         child: Text(
-                                          'PAYMENT HISTORY',
+                                          'PAYMENTS',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(

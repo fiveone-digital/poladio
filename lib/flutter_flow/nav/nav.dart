@@ -70,9 +70,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => UserListWidget(),
         ),
         FFRoute(
-          name: 'PaymentHist',
-          path: '/paymentHist',
-          builder: (context, params) => PaymentHistWidget(),
+          name: 'PaymentList',
+          path: '/paymentList',
+          builder: (context, params) => PaymentListWidget(),
         ),
         FFRoute(
           name: 'Loginpage',
@@ -124,9 +124,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => EnterNewBookingWidget(),
         ),
         FFRoute(
-          name: 'Projects',
-          path: '/projects',
-          builder: (context, params) => ProjectsWidget(),
+          name: 'ProjectList',
+          path: '/projectList',
+          builder: (context, params) => ProjectListWidget(),
         ),
         FFRoute(
           name: 'EnterWalkin',

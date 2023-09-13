@@ -28,6 +28,7 @@ class PoladioAPIsGroup {
   static CreateWalkInCall createWalkInCall = CreateWalkInCall();
   static UpdateWalkInCall updateWalkInCall = UpdateWalkInCall();
   static ViewWalkInCall viewWalkInCall = ViewWalkInCall();
+  static FollowUpsCall followUpsCall = FollowUpsCall();
 }
 
 class LoginCall {
@@ -254,6 +255,8 @@ class ProspectCall {
   Future<ApiCallResponse> call({
     String? token = '',
     int? id,
+    String? bookingName = '',
+    int? page = 1,
   }) {
     return ApiManager.instance.makeApiCall(
       callName: 'Prospect',
@@ -263,7 +266,10 @@ class ProspectCall {
         ...PoladioAPIsGroup.headers,
         'Authorization': 'Bearer ${token}',
       },
-      params: {},
+      params: {
+        'search[booking_name]': bookingName,
+        'page': page,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -628,6 +634,33 @@ class ViewWalkInCall {
       },
       params: {
         'token': token,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+class FollowUpsCall {
+  Future<ApiCallResponse> call({
+    String? token = '',
+    int? projectId,
+    int? prospectId,
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'FollowUps',
+      apiUrl:
+          '${PoladioAPIsGroup.baseUrl}/projects/${projectId}/prospect/${prospectId}/follow-ups',
+      callType: ApiCallType.GET,
+      headers: {
+        ...PoladioAPIsGroup.headers,
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {
+        'project_id': projectId,
+        'prospect_id': prospectId,
       },
       returnBody: true,
       encodeBodyUtf8: false,
