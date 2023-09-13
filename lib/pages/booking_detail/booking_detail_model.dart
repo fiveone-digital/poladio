@@ -1,5 +1,6 @@
 import '/components/booking_det_bottom/booking_det_bottom_widget.dart';
 import '/components/booking_payment_bottom/booking_payment_bottom_widget.dart';
+import '/components/delete_booking/delete_booking_widget.dart';
 import '/components/demand_hist_bottom/demand_hist_bottom_widget.dart';
 import '/components/owner_doc_details/owner_doc_details_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';

@@ -80,47 +80,167 @@ class _WalkInBottomWidgetState extends State<WalkInBottomWidget> {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 0.0, 0.0),
-                child: Text(
-                  'Prospect Details',
-                  style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Outfit',
-                        color: Color(0xFF15161E),
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w500,
-                      ),
-                ),
+          Container(
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).secondaryBackground,
+              border: Border.all(
+                color: FlutterFlowTheme.of(context).secondaryText,
               ),
-              Row(
+            ),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+              child: Row(
                 mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                    child: FlutterFlowIconButton(
-                      borderWidth: 1.0,
-                      buttonSize: 40.0,
-                      icon: Icon(
-                        Icons.close,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 30.0,
-                      ),
-                      onPressed: () async {
-                        Navigator.pop(context);
-                      },
+                        EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 0.0, 0.0),
+                    child: Text(
+                      'Prospect Details',
+                      style:
+                          FlutterFlowTheme.of(context).headlineMedium.override(
+                                fontFamily: 'Outfit',
+                                color: Color(0xFF15161E),
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.w500,
+                              ),
                     ),
                   ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                        child: FlutterFlowIconButton(
+                          borderWidth: 1.0,
+                          buttonSize: 40.0,
+                          icon: Icon(
+                            Icons.close,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            size: 30.0,
+                          ),
+                          onPressed: () async {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
+              ),
+            ),
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 5.0, 5.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    Navigator.pop(context);
+
+                    context.pushNamed('EnterPersonalWalkin');
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Text(
+                        'Add Booking',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              color:
+                                  FlutterFlowTheme.of(context).subHeadingColor,
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w600,
+                            ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+
+                            context.pushNamed('EnterPersonalWalkin');
+                          },
+                          child: Icon(
+                            Icons.add,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            size: 32.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 24.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    Navigator.pop(context);
+
+                    context.pushNamed(
+                      'EditWalkin',
+                      queryParameters: {
+                        'walkinDetail': serializeParam(
+                          widget.walkinDetail,
+                          ParamType.JSON,
+                        ),
+                        'id': serializeParam(
+                          0,
+                          ParamType.int,
+                        ),
+                      }.withoutNulls,
+                    );
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                        child: Text(
+                          'Edit WalkIn',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Poppins',
+                                    color: FlutterFlowTheme.of(context)
+                                        .subHeadingColor,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                        ),
+                      ),
+                      FaIcon(
+                        FontAwesomeIcons.edit,
+                        color: Color(0xFF1800FF),
+                        size: 32.0,
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -151,61 +271,6 @@ class _WalkInBottomWidgetState extends State<WalkInBottomWidget> {
                         ),
                   ),
                 ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                      child: FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        borderWidth: 1.0,
-                        buttonSize: 35.0,
-                        icon: Icon(
-                          Icons.add,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 30.0,
-                        ),
-                        onPressed: () async {
-                          Navigator.pop(context);
-
-                          context.pushNamed('EnterPersonalWalkin');
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                      child: FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        borderWidth: 1.0,
-                        buttonSize: 35.0,
-                        icon: FaIcon(
-                          FontAwesomeIcons.edit,
-                          color: Color(0xFF2442E8),
-                          size: 28.0,
-                        ),
-                        onPressed: () async {
-                          Navigator.pop(context);
-
-                          context.pushNamed(
-                            'EditWalkin',
-                            queryParameters: {
-                              'walkinDetail': serializeParam(
-                                widget.walkinDetail,
-                                ParamType.JSON,
-                              ),
-                              'id': serializeParam(
-                                0,
-                                ParamType.int,
-                              ),
-                            }.withoutNulls,
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
                 Expanded(
                   child: Padding(
                     padding:
@@ -224,8 +289,8 @@ class _WalkInBottomWidgetState extends State<WalkInBottomWidget> {
                               .override(
                                 fontFamily: 'Poppins',
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 12.0,
-                                fontWeight: FontWeight.w600,
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w500,
                               ),
                         ),
                       ],
